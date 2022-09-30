@@ -20,7 +20,7 @@ span {
     text-align: justify;
 }
 
-[type='text']:focus,
+/* [type='text']:focus,
 [type='email']:focus,
 [type='url']:focus,
 [type='password']:focus,
@@ -37,12 +37,12 @@ textarea:focus,
 select:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
-    --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
-    --tw-ring-offset-width: 0px;
+    --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/
+/* --tw-ring-offset-width: 0px;
     --tw-ring-offset-color: #fff;
     --tw-ring-color: transparent !important;
     --tw-ring-offset-shadow: transparent !important;
     --tw-ring-shadow: transparent !important;
     box-shadow: transparent !important;
-    border-color: transparent !important;
-}
+    border-color: transparent !important; */
+/* } */

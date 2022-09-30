@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import { Dropdown, Avatar } from 'flowbite-react';
 import auth from './../../../../firebase.config';
+import profile from '../../../../assets/images/profile.png';
 
 const DashboardHeader = ({ sidebarMenu, setSidebarMenu }) => {
     const [user, loading] = useAuthState(auth);
@@ -60,16 +61,7 @@ const DashboardHeader = ({ sidebarMenu, setSidebarMenu }) => {
                     <Dropdown
                         arrowIcon={false}
                         inline={true}
-                        label={
-                            <Avatar
-                                alt="User settings"
-                                img={
-                                    user.photoURL ||
-                                    'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                                }
-                                rounded={true}
-                            />
-                        }
+                        label={<Avatar img={profile} rounded={true} />}
                     >
                         <Dropdown.Header>
                             <span className="block text-sm">

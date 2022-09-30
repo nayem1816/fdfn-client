@@ -31,7 +31,7 @@ const AboutFdfn = () => {
                     </Typography>
                     <Typography variant="h5" sx={{ mt: '10px', mb: 2 }}>
                         FDFN is a place where internet make its way to the end
-                        users at ease in a quality manner. We thrive for
+                        users at ease in a quality manner. We thrive htmlFor
                         quality. So be assured.
                     </Typography>
                     <Typography variant="p">

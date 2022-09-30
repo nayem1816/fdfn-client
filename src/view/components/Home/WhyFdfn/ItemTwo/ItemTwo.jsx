@@ -23,8 +23,8 @@ const ItemTwo = () => {
                     </Typography>
                     <Box sx={{ mt: '25px' }}>
                         <Typography color="text.secondary">
-                            We provide unlimited data bandwidth for ultimate web
-                            browsing experience and also our flawless
+                            We provide unlimited data bandwidth htmlFor ultimate
+                            web browsing experience and also our flawless
                             connectivity helps with stable download and upload
                             speed all the time.
                         </Typography>

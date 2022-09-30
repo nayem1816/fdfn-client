@@ -14,12 +14,12 @@ const History = () => {
                 <p className="text-justify">
                     Founded in 2016 as a Bangladesh’s certified premier Internet
                     Service Provider (ISP), FDFN is a commercial Internet
-                    service provider (ISP) for the modern development society.
-                    The year that followed FDFN played a major role in building
-                    Internet infrastructure, earning the company a well
-                    reputation for fast, stable Internet access and innovative
-                    Internet solutions for both individual and corporate
-                    customers.{' '}
+                    service provider (ISP) htmlFor the modern development
+                    society. The year that followed FDFN played a major role in
+                    building Internet infrastructure, earning the company a well
+                    reputation htmlFor fast, stable Internet access and
+                    innovative Internet solutions htmlFor both individual and
+                    corporate customers.{' '}
                 </p>
             </div>
         </div>

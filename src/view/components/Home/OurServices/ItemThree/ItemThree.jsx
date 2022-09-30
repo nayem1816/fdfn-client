@@ -22,8 +22,8 @@ const ItemThree = () => {
                     </Typography>
                     <Box sx={{ mt: '25px' }}>
                         <Typography color="text.secondary">
-                            A generic term for connecting devices to each other
-                            in order to transfer data back and forth.
+                            A generic term htmlFor connecting devices to each
+                            other in order to transfer data back and forth.
                         </Typography>
                     </Box>
                 </CardContent>

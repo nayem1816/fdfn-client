@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Inbox = () => {
+const BillList = () => {
     return (
         <div>
-            <h2>Inbox</h2>
+            <h2>Bill List</h2>
         </div>
     );
 };
 
-export default Inbox;
+export default BillList;
