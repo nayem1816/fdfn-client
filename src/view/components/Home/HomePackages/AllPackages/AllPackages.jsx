@@ -43,6 +43,8 @@ const AllPackages = () => {
                                             textAlign: 'center',
                                             p: 1,
                                             color: 'white',
+                                            display: 'grid',
+                                            justifyContent: 'center',
                                         }}
                                     >
                                         <img src={kiteIcon} alt="" />

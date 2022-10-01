@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import adminReducer from '../features/adminSlice';
+import dataReducer from '../features/dataSlice';
 
 const store = configureStore({
     reducer: {
-        adminReducer: adminReducer,
+        dataReducer: dataReducer,
     },
 });
 
