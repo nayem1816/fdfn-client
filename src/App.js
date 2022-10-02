@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes } from 'react-router-dom';
 import Skeleton1 from './view/components/Common/Skeleton/Skeleton1';
+import PaymentReg from './view/pages/Registration/PaymentReg';
 
 const Main = React.lazy(() => import('./view/pages/Main'));
 const Home = React.lazy(() => import('./view/pages/Home/Home'));
@@ -69,6 +70,12 @@ const ManageCoverage = React.lazy(() =>
 const AddPackage = React.lazy(() =>
     import('./view/components/Dashboard/Packages/AddPackage')
 );
+const Registration = React.lazy(() =>
+    import('./view/pages/Registration/Registration')
+);
+const ProductPayment = React.lazy(() =>
+    import('./view/pages/Payment/ProductPayment')
+);
 
 function App() {
     return (
@@ -87,6 +94,14 @@ function App() {
                         <Route path="home" element={<Home />} />
                         <Route path="payBill" element={<PayBill />} />
                         <Route path="packages" element={<Packages />} />
+                        <Route
+                            path="registration/:id"
+                            element={<Registration />}
+                        />
+                        <Route
+                            path="registration/paymentRegistration/:id"
+                            element={<PaymentReg />}
+                        />
                         <Route path="ftpSite" element={<FtpSite />} />
                         <Route path="liveTv" element={<LiveTv />} />
                         <Route path="about" element={<About />} />
@@ -100,6 +115,14 @@ function App() {
                             element={
                                 <Protected>
                                     <ProductDetails />
+                                </Protected>
+                            }
+                        />
+                        <Route
+                            path="product/productPayment/:id"
+                            element={
+                                <Protected>
+                                    <ProductPayment />
                                 </Protected>
                             }
                         />

@@ -55,10 +55,11 @@ const PackagesList = ({ pack, count }) => {
                 id: id,
             })
             .then(function (response) {
-                toast.success('Delete Successfully', {
+                toast.success('Package deleted successfully', {
                     position: 'top-right',
                     autoClose: 1000,
                 });
+                // reload page
                 window.location.reload();
             })
             .catch(function (error) {

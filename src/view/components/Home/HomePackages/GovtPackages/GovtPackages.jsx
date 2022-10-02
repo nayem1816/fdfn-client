@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
     Box,
     Grid,
@@ -7,23 +7,34 @@ import {
     Button,
     Typography,
 } from '@mui/material';
-import allData from '../../../../../util/PackagesData.json';
 import kiteIcon from '../../../../../assets/images/kite.png';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from './../../../../../redux/features/dataSlice';
+import { Link } from 'react-router-dom';
 
-const NormalSpeed = () => {
-    const [packages, setPackages] = useState([]);
+const GovtPackages = () => {
+    const { data, loading } = useSelector((state) => state.dataReducer);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        setPackages(allData);
-    }, []);
+        dispatch(fetchData('readPackages'));
+    }, [dispatch]);
 
-    console.log(packages);
+    const govtPackage = data.data?.filter(
+        (pack) => pack.packageType === 'Govt.'
+    );
+
+    if (loading) {
+        return <h1 className="text-center my-10">Loading...</h1>;
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={3}>
                 <Grid container item spacing={4}>
-                    {packages.map((packageData, index) => (
+                    {govtPackage?.map((packageData, index) => (
                         <Grid
                             key={packageData?.id}
                             item
@@ -41,6 +52,8 @@ const NormalSpeed = () => {
                                             textAlign: 'center',
                                             p: 1,
                                             color: 'white',
+                                            display: 'grid',
+                                            justifyContent: 'center',
                                         }}
                                     >
                                         <img src={kiteIcon} alt="" />
@@ -71,7 +84,7 @@ const NormalSpeed = () => {
                                             {packageData?.totalMb}
                                         </Typography>
                                         <Typography sx={{ ml: 2 }}>
-                                            <h3>MBPS</h3>
+                                            <h3>Mbps</h3>
                                             <p>
                                                 Unlimited <br /> Uses{' '}
                                             </p>
@@ -161,7 +174,11 @@ const NormalSpeed = () => {
                                         sx={{ p: '15px 50px' }}
                                         variant="contained"
                                     >
-                                        CHOOSE
+                                        <Link
+                                            to={`/registration/${packageData?._id}`}
+                                        >
+                                            CHOOSE
+                                        </Link>
                                     </Button>
                                 </Box>
                             </Card>
@@ -173,4 +190,4 @@ const NormalSpeed = () => {
     );
 };
 
-export default NormalSpeed;
+export default GovtPackages;

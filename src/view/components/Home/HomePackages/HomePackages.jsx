@@ -2,13 +2,14 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import './HomePackages.css';
-import AllPackages from './AllPackages/AllPackages';
-import NormalSpeed from './NormalSpeed/NormalSpeed';
-import HighSpeed from './HighSpeed/HighSpeed';
+import GovtPackages from './GovtPackages/GovtPackages';
+import EconomyPackages from './EconomyPackages/EconomyPackages';
+import GamingPackages from './GamingPackages/GamingPackages';
 import { Box, Typography, Container, Tab } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
+import CorporatePackages from './CorporatePackages/CorporatePackages';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -75,13 +76,19 @@ export default function HomePackages() {
                         value={value}
                         onChange={handleChange}
                         indicatorColor="secondary"
+                        position="static"
                         textColor="inherit"
-                        variant="fullWidth"
+                        variant={
+                            theme.breakpoints.up('md')
+                                ? 'fullWidth'
+                                : 'scrollable'
+                        }
                         aria-label="full width tabs example"
                     >
-                        <Tab label="All Packages" {...a11yProps(0)} />
-                        <Tab label="Govt. Packages" {...a11yProps(1)} />
-                        <Tab label="Spacial Packages" {...a11yProps(2)} />
+                        <Tab label="Govt." {...a11yProps(0)} />
+                        <Tab label="Economy" {...a11yProps(1)} />
+                        <Tab label="Gaming" {...a11yProps(2)} />
+                        <Tab label="Corporate" {...a11yProps(3)} />
                     </Tabs>
                 </AppBar>
             </Container>
@@ -92,13 +99,16 @@ export default function HomePackages() {
                     onChangeIndex={handleChangeIndex}
                 >
                     <TabPanel value={value} index={0} dir={theme.direction}>
-                        <AllPackages />
+                        <GovtPackages />
                     </TabPanel>
                     <TabPanel value={value} index={1} dir={theme.direction}>
-                        <NormalSpeed />
+                        <EconomyPackages />
                     </TabPanel>
                     <TabPanel value={value} index={2} dir={theme.direction}>
-                        <HighSpeed />
+                        <GamingPackages />
+                    </TabPanel>
+                    <TabPanel value={value} index={3} dir={theme.direction}>
+                        <CorporatePackages />
                     </TabPanel>
                 </SwipeableViews>
             </Box>

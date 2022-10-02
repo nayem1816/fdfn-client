@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProductsCard from './ProductsCard';
 import { Typography } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,35 +6,28 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper';
-
-const productData = [
-    {
-        id: 1,
-        name: 'FDFN 1',
-    },
-    {
-        id: 2,
-        name: 'FDFN 2',
-    },
-    {
-        id: 3,
-        name: 'FDFN 3',
-    },
-    {
-        id: 4,
-        name: 'FDFN 4',
-    },
-    {
-        id: 5,
-        name: 'FDFN 5',
-    },
-    {
-        id: 6,
-        name: 'FDFN 6',
-    },
-];
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from './../../../redux/features/productsSlice';
 
 const Products = () => {
+    const { data, loading, error } = useSelector(
+        (state) => state.productsReducer
+    );
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchProducts('readProducts'));
+    }, [dispatch]);
+
+    if (loading) {
+        return <h2>Loading...</h2>;
+    }
+
+    if (error) {
+        return <h2>{error}</h2>;
+    }
+
     return (
         <div className="container mx-auto">
             <div className="px-10 mt-10">
@@ -67,8 +60,8 @@ const Products = () => {
                     modules={[Navigation]}
                     className="mySwiper"
                 >
-                    {productData.map((product) => (
-                        <SwiperSlide key={product.id}>
+                    {data.data?.map((product) => (
+                        <SwiperSlide key={product?._id}>
                             <ProductsCard product={product} />
                         </SwiperSlide>
                     ))}

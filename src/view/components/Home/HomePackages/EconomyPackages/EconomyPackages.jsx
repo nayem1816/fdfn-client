@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
     Box,
     Grid,
@@ -7,25 +7,33 @@ import {
     Button,
     Typography,
 } from '@mui/material';
-import allData from '../../../../../util/PackagesData.json';
 import kiteIcon from '../../../../../assets/images/kite.png';
-import './AllPackages.css';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchData } from './../../../../../redux/features/dataSlice';
+import { Link } from 'react-router-dom';
 
-const AllPackages = () => {
-    const [packages, setPackages] = useState([]);
+const EconomyPackages = () => {
+    const { data, loading } = useSelector((state) => state.dataReducer);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        setPackages(allData);
-    }, []);
+        dispatch(fetchData('readPackages'));
+    }, [dispatch]);
 
-    console.log(packages);
+    const economyPackage = data.data?.filter(
+        (pack) => pack.packageType === 'Economy'
+    );
 
+    if (loading) {
+        return <h1 className="text-center my-10">Loading...</h1>;
+    }
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={3}>
                 <Grid container item spacing={4}>
-                    {packages.map((packageData, index) => (
+                    {economyPackage.map((packageData, index) => (
                         <Grid
                             key={packageData?.id}
                             item
@@ -165,7 +173,11 @@ const AllPackages = () => {
                                         sx={{ p: '15px 50px' }}
                                         variant="contained"
                                     >
-                                        CHOOSE
+                                        <Link
+                                            to={`/registration/${packageData?._id}`}
+                                        >
+                                            CHOOSE
+                                        </Link>
                                     </Button>
                                 </Box>
                             </Card>
@@ -177,4 +189,4 @@ const AllPackages = () => {
     );
 };
 
-export default AllPackages;
+export default EconomyPackages;
