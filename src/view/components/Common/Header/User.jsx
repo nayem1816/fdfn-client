@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../../../firebase.config';
 
 const User = () => {
+    const [isAdmin, setIsAdmin] = React.useState(false);
+    const [isModerator, setIsModerator] = React.useState(false);
     const [active, setActive] = React.useState(false);
     const [user] = useAuthState(auth);
     const handleBtn = () => {
         setActive(!active);
     };
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/api/v1/isAdmin?email=${user.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data?.data?.adminEmail === user.email) {
+                    setIsAdmin(true);
+                }
+            });
+
+        fetch(`http://localhost:5000/api/v1/isModerator?email=${user.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data?.data?.adminEmail === user.email) {
+                    setIsModerator(true);
+                }
+            });
+    }, [user.email]);
+
     return (
         <div>
             <button
@@ -27,7 +48,7 @@ const User = () => {
                     xmlns="http://www.w3.org/2000/svg"
                 >
                     <path
-                        stroke-linecap="round"
+                        strokeLinecap="round"
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M19 9l-7 7-7-7"
@@ -49,14 +70,16 @@ const User = () => {
                     className="py-1 text-sm text-gray-700 dark:text-gray-200"
                     aria-labelledby="dropdownInformationButton"
                 >
-                    <li>
-                        <a
-                            href="/dashboard"
-                            className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                            Dashboard
-                        </a>
-                    </li>
+                    {isAdmin === true || isModerator === true ? (
+                        <li>
+                            <a
+                                href="/dashboard"
+                                className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            >
+                                Dashboard
+                            </a>
+                        </li>
+                    ) : null}
                     <li>
                         <a
                             href="/"

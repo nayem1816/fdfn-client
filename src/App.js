@@ -109,7 +109,9 @@ function App() {
                         path="/dashboard"
                         element={
                             <Protected>
+                                {/* <AdminProtected> */}
                                 <Dashboard />
+                                {/* </AdminProtected> */}
                             </Protected>
                         }
                     >
@@ -117,7 +119,9 @@ function App() {
                             path=""
                             element={
                                 <Protected>
+                                    {/* <AdminProtected> */}
                                     <DashboardHome />
+                                    {/* </AdminProtected> */}
                                 </Protected>
                             }
                         />

@@ -10,6 +10,7 @@ const AddPackage = () => {
     const onSubmit = (data) => {
         const packagesData = {
             packageType: data.packageType,
+            packageName: data.packageName,
             totalMb: data.totalMb,
             price: data.price,
             feature1: data.feature1,
@@ -30,7 +31,7 @@ const AddPackage = () => {
                     autoClose: 1000,
                 });
                 // reload page
-                window.location.reload();
+                // window.location.reload();
             })
             .catch(function (error) {
                 setGetPackages([]);
@@ -47,7 +48,7 @@ const AddPackage = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <h2 className="text-4xl">Admin</h2>
+            <h2 className="text-4xl">Add Packages</h2>
             <div className="gap-3 my-16 grid grid-cols-1 lg:grid-cols-2">
                 <div className="packageType mb-6">
                     <label
@@ -62,10 +63,28 @@ const AddPackage = () => {
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                         <option value="Choose a type">Choose a type</option>
-                        <option value="All Packages">All Packages</option>
-                        <option value="Govt. Packages">Govt. Packages</option>
-                        <option value="Others">Corporate & Gaming</option>
+                        <option value="Govt.">Govt.</option>
+                        <option value="Economy">Economy</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Corporate">Corporate</option>
                     </select>
+                </div>
+                <div className="name mb-6">
+                    <label
+                        htmlFor="input-group-1"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
+                        Package Name
+                    </label>
+                    <div className="relative">
+                        <input
+                            {...register('packageName', { required: true })}
+                            type="text"
+                            id="input-group-1"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Package Name"
+                        />
+                    </div>
                 </div>
                 <div className="totalMb mb-6">
                     <label
@@ -94,7 +113,7 @@ const AddPackage = () => {
                     <div className="relative">
                         <input
                             {...register('price', { required: true })}
-                            type="number"
+                            type="text"
                             id="input-group-2"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="500"
