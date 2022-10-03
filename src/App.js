@@ -76,6 +76,12 @@ const Registration = React.lazy(() =>
 const ProductPayment = React.lazy(() =>
     import('./view/pages/Payment/ProductPayment')
 );
+const Registrations = React.lazy(() =>
+    import('./view/components/Dashboard/Registrations/Registrations')
+);
+const Notification = React.lazy(() =>
+    import('./view/components/Dashboard/CreateNotification/Notification')
+);
 
 function App() {
     return (
@@ -173,6 +179,14 @@ function App() {
                             }
                         />
                         <Route
+                            path="registrations"
+                            element={
+                                <Protected>
+                                    <Registrations />
+                                </Protected>
+                            }
+                        />
+                        <Route
                             path="addPackage"
                             element={
                                 <Protected>
@@ -265,6 +279,14 @@ function App() {
                             element={
                                 <Protected>
                                     <ManageCoverage />
+                                </Protected>
+                            }
+                        />
+                        <Route
+                            path="notification"
+                            element={
+                                <Protected>
+                                    <Notification />
                                 </Protected>
                             }
                         />

@@ -1,16 +1,55 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../../firebase.config';
+import getFullDateAndTime from '../../../services/getFullDateAndTime';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ProductPayment = () => {
     const [user] = useAuthState(auth);
     const [productData, setProductData] = React.useState([]);
     const { id } = useParams();
+    const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        console.log(data);
+        const dateAndTime = getFullDateAndTime();
+
+        const orderData = {
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            address: data.address,
+            productName: productData.productName,
+            productPrice: productData.productPrice,
+            image: productData.image,
+            status: 'New',
+            createOrderDate: dateAndTime,
+            updateOrderDate: dateAndTime,
+        };
+
+        axios
+            .post('http://localhost:5000/api/v1/createProductBill', {
+                ...orderData,
+            })
+            .then(function (response) {
+                if (response.data.status === 'success') {
+                    toast.success('Package created successfully', {
+                        position: 'top-right',
+                        autoClose: 1000,
+                    });
+                    navigate('/');
+                } else {
+                    toast.error('Something went wrong', {
+                        position: 'top-right',
+                        autoClose: 1000,
+                    });
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     };
 
     useEffect(() => {

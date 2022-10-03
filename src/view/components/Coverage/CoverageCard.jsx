@@ -1,65 +1,63 @@
-import React from 'react';
-import { Container, Card, Typography } from '@mui/material';
-
-const coverageData = [
-    {
-        id: 1,
-        coverageName: 'Dhaladia',
-    },
-    {
-        id: 2,
-        coverageName: 'Dhaladia',
-    },
-    {
-        id: 3,
-        coverageName: 'Dhaladia',
-    },
-    {
-        id: 4,
-        coverageName: 'Dhaladia',
-    },
-    {
-        id: 5,
-        coverageName: 'Dhaladia',
-    },
-    {
-        id: 6,
-        coverageName: 'Dhaladia',
-    },
-    {
-        id: 7,
-        coverageName: 'Dhaladia',
-    },
-    {
-        id: 8,
-        coverageName: 'Dhaladia',
-    },
-    {
-        id: 9,
-        coverageName: 'Dhaladia',
-    },
-];
+/* eslint-disable react/jsx-no-target-blank */
+import React, { useEffect, useState } from 'react';
+import {
+    Box,
+    Container,
+    Grid,
+    Card,
+    CardContent,
+    Typography,
+} from '@mui/material';
 
 const CoverageCard = () => {
+    const [coverages, setCoverages] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/api/v1/readCoverage')
+            .then((response) => response.json())
+            .then((result) => setCoverages(result.data))
+            .catch((error) => console.log('error', error));
+    }, []);
     return (
-        <Container>
-            <Typography
-                sx={{ textAlign: 'center', my: 5 }}
-                variant="h3"
-                gutterBottom
-            >
-                Coverages
-            </Typography>
-            <div className="row d-flex justify-content-center">
-                {coverageData.map((coverage) => (
-                    <div className="col-md-3 gap-4" key={coverage.id}>
-                        <Card sx={{ minWidth: 275 }}>
-                            <h2>{coverage.coverageName}</h2>
-                        </Card>
-                    </div>
-                ))}
+        <>
+            <div className="py-5 mb-5 bg-red-600">
+                <h2 className="text-white text-2xl text-center underline">
+                    Our Coverages
+                </h2>
             </div>
-        </Container>
+            <Container>
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid
+                        container
+                        spacing={{ xs: 2, md: 3 }}
+                        columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                        {coverages?.map((coverage) => (
+                            <Grid item xs={2} sm={4} md={4} key={coverage._id}>
+                                <Card
+                                    sx={{
+                                        maxWidth: 345,
+                                        mt: 2,
+                                        backgroundColor: '#7f8c8d',
+                                    }}
+                                >
+                                    <CardContent>
+                                        <Typography
+                                            gutterBottom
+                                            variant="h5"
+                                            component="div"
+                                            sx={{ color: 'white' }}
+                                        >
+                                            {coverage.coverageName}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Box>
+            </Container>
+        </>
     );
 };
 

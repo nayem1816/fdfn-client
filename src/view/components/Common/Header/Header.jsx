@@ -27,14 +27,12 @@ const Header = () => {
 
     if (loading) {
         return (
-            <li className="mt-2 md:mt-0">
-                <a
-                    href="/login"
-                    className="block px-2 py-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 hover:text-red-600"
-                >
-                    Login
-                </a>
-            </li>
+            <a
+                href="/login"
+                className="block px-2 py-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 hover:text-red-600"
+            >
+                Login
+            </a>
         );
     }
 

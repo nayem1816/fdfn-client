@@ -1,28 +1,81 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { addRegistration } from '../../../redux/features/registrationSlice';
+// import { useDispatch } from 'react-redux';
+// import { addRegistration } from '../../../redux/features/registrationSlice';
 import { toast } from 'react-toastify';
+import getFullDateAndTime from './../../../services/getFullDateAndTime';
 
 const Registration = () => {
+    const [packageData, setPackageData] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
 
     const { register, handleSubmit } = useForm();
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const onSubmit = (data) => {
-        toast.success('Registration Successful');
+        const dateAndTime = getFullDateAndTime();
 
-        navigate('/');
+        var formData = new FormData();
+        formData.append('subscriberName', data.subscriberName);
+        formData.append('authorizedName', data.authorizedName);
+        formData.append('email', data.email);
+        formData.append('contactNumber', data.contactNumber);
+        formData.append('nationalId', data.nationalId);
+        formData.append('yourPhoto', data.yourPhoto[0], data.yourPhoto[0].name);
+        formData.append('nidFront', data.nidFront[0], data.nidFront[0].name);
+        formData.append('nidBack', data.nidBack[0], data.nidBack[0].name);
+        formData.append('dateOfBirth', data.dateOfBirth);
+        formData.append('gender', data.gender);
+        formData.append('occupation', data.occupation);
+        formData.append('fatherName', data.fatherName);
+        formData.append('motherName', data.motherName);
+        formData.append('googleLocationPinPoint', data.googleLocationPinPoint);
+        formData.append('address', data.address);
+        formData.append('packageName', packageData.packageName);
+        formData.append('totalMb', packageData.totalMb);
+        formData.append('price', packageData.price);
+        formData.append('createRegDate', dateAndTime);
+        formData.append('updateRegDate', dateAndTime);
+
+        var requestOptions = {
+            method: 'POST',
+            body: formData,
+            redirect: 'follow',
+        };
+
+        fetch('http://localhost:5000/api/v1/createRegPackage', requestOptions)
+            .then((response) => response.text())
+            .then((result) => {
+                console.log(result);
+                if (result) {
+                    toast.success('Registration Successfully', {
+                        position: 'top-right',
+                        autoClose: 1000,
+                    });
+                    navigate('/');
+                }
+            })
+            .catch((error) => {
+                toast.error('Something went wrong', {
+                    position: 'top-right',
+                    autoClose: 1000,
+                });
+            });
 
         // dispatch(addRegistration(data));
         // go to payment page
 
         // navigate(`/registration/paymentRegistration/${id}`);
     };
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/api/v1/readPackages/${id}`)
+            .then((res) => res.json())
+            .then((data) => setPackageData(data.data));
+    }, [id]);
 
     return (
         <div>
@@ -44,7 +97,7 @@ const Registration = () => {
                             for="name1"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                            Subscriber Name
+                            Subscriber Name*
                         </label>
                         <input
                             {...register('subscriberName', {
@@ -65,14 +118,11 @@ const Registration = () => {
                             Authorized Name
                         </label>
                         <input
-                            {...register('authorizedName', {
-                                required: true,
-                            })}
+                            {...register('authorizedName')}
                             type="text"
                             id="name2"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Enter your name"
-                            required
                         />
                     </div>
                     <div class="mb-6">
@@ -80,7 +130,7 @@ const Registration = () => {
                             for="email"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                            Email
+                            Email*
                         </label>
                         <input
                             {...register('email', {
@@ -98,7 +148,7 @@ const Registration = () => {
                             for="phone"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                            Contact Number
+                            Contact Number*
                         </label>
                         <input
                             {...register('contactNumber', {
@@ -119,14 +169,11 @@ const Registration = () => {
                             National Id Number
                         </label>
                         <input
-                            {...register('nationalId', {
-                                required: true,
-                            })}
+                            {...register('nationalId')}
                             type="number"
                             id="nid"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Enter your name"
-                            required
                         />
                     </div>
                     <div className="uploadFile mb-6">
@@ -134,7 +181,7 @@ const Registration = () => {
                             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                             htmlFor="file_input1"
                         >
-                            Your Photo
+                            Your Photo*
                         </label>
                         <input
                             {...register('yourPhoto', { required: true })}
@@ -179,7 +226,7 @@ const Registration = () => {
                             for="birth"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                            Date Of Birth
+                            Date Of Birth*
                         </label>
                         <div class="relative">
                             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -213,7 +260,7 @@ const Registration = () => {
                             htmlFor="countries"
                             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                         >
-                            Gender
+                            Gender*
                         </label>
                         <select
                             {...register('gender', { required: true })}
@@ -241,7 +288,6 @@ const Registration = () => {
                             id="occupation"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Enter your name"
-                            required
                         />
                     </div>
                     <div class="mb-6">
@@ -257,7 +303,6 @@ const Registration = () => {
                             id="fatherName"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Enter your name"
-                            required
                         />
                     </div>
                     <div class="mb-6">
@@ -273,7 +318,6 @@ const Registration = () => {
                             id="motherName"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Enter your name"
-                            required
                         />
                     </div>
                     <div class="mb-6">
@@ -289,7 +333,6 @@ const Registration = () => {
                             id="googleLocationPinPoint"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Enter your name"
-                            required
                         />
                     </div>
                     <div class="mb-6">
@@ -297,10 +340,10 @@ const Registration = () => {
                             for="address"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                            Address
+                            Address*
                         </label>
                         <input
-                            {...register('address')}
+                            {...register('address', { required: true })}
                             type="text"
                             id="address"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

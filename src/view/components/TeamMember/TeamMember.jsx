@@ -15,7 +15,7 @@ const TeamMember = () => {
     }, [dispatch]);
 
     if (loading) {
-        return <h2>Loading...</h2>;
+        return <h2 className="text-center my-10">Loading...</h2>;
     }
 
     if (error) {
@@ -24,7 +24,7 @@ const TeamMember = () => {
 
     return (
         <div className="container mx-auto">
-            <div className="px-10">
+            <div className="px-10 text-center">
                 <Typography variant="h6">Our Team Members</Typography>
             </div>
             <div className="flex justify-center m-2">

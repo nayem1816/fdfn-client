@@ -13,54 +13,53 @@ const TvCard = () => {
     const [tvData, setTvData] = useState([]);
 
     useEffect(() => {
-        fetch('http://fdfnserverapi.fdfn.net/api/v1/readChannel')
+        fetch('http://localhost:5000/api/v1/readTv')
             .then((response) => response.json())
             .then((result) => setTvData(result.data))
             .catch((error) => console.log('error', error));
     }, []);
-    console.log(tvData);
     return (
-        <Container>
-            <Typography
-                sx={{ textAlign: 'center', my: 5 }}
-                variant="h3"
-                gutterBottom
-            >
-                Live TV Channels
-            </Typography>
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid
-                    container
-                    spacing={{ xs: 2, md: 3 }}
-                    columns={{ xs: 4, sm: 8, md: 12 }}
-                >
-                    {tvData.map((tv) => (
-                        <Grid item xs={2} sm={4} md={4} key={tv._id}>
-                            <a href={tv.link} target="_blank">
-                                <Card
-                                    sx={{
-                                        maxWidth: 345,
-                                        mt: 2,
-                                        backgroundColor: '#7f8c8d',
-                                    }}
-                                >
-                                    <CardContent>
-                                        <Typography
-                                            gutterBottom
-                                            variant="h5"
-                                            component="div"
-                                            sx={{ color: 'white' }}
-                                        >
-                                            {tv.channelName}
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                            </a>
-                        </Grid>
-                    ))}
-                </Grid>
-            </Box>
-        </Container>
+        <>
+            <div className="py-5 mb-5 bg-red-600">
+                <h2 className="text-white text-2xl text-center underline">
+                    Our Live Tv
+                </h2>
+            </div>
+            <Container>
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid
+                        container
+                        spacing={{ xs: 2, md: 3 }}
+                        columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                        {tvData.map((tv) => (
+                            <Grid item xs={2} sm={4} md={4} key={tv._id}>
+                                <a href={tv.link} target="_blank">
+                                    <Card
+                                        sx={{
+                                            maxWidth: 345,
+                                            mt: 2,
+                                            backgroundColor: '#7f8c8d',
+                                        }}
+                                    >
+                                        <CardContent>
+                                            <Typography
+                                                gutterBottom
+                                                variant="h5"
+                                                component="div"
+                                                sx={{ color: 'white' }}
+                                            >
+                                                {tv.channelName}
+                                            </Typography>
+                                        </CardContent>
+                                    </Card>
+                                </a>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Box>
+            </Container>
+        </>
     );
 };
 

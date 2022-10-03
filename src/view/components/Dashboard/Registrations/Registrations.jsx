@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import OrderList from './OrderList';
+import RegistrationList from './RegistrationList';
 
-const Order = () => {
-    const [productBillsData, setProductBillsData] = useState([]);
+const Registrations = () => {
+    const [registrationData, setRegistrationData] = useState([]);
     let count = 1;
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/readProductBill`)
+        fetch(`http://localhost:5000/api/v1/readRegPackage`)
             .then((res) => res.json())
-            .then((data) => setProductBillsData(data.data));
+            .then((data) => setRegistrationData(data.data));
     }, []);
-    console.log(productBillsData);
     return (
         <div>
-            <h2 className="text-4xl">Total Orders</h2>
+            <h2 className="text-4xl">Manage Registrations</h2>
             <div className="product-table my-5">
                 <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -28,10 +27,10 @@ const Order = () => {
                                     Phone
                                 </th>
                                 <th scope="col" className="py-3 px-6">
-                                    Product Name
+                                    Package
                                 </th>
                                 <th scope="col" className="py-3 px-6">
-                                    Product Price
+                                    Total Mb
                                 </th>
                                 <th scope="col" className="py-3 px-6">
                                     Status
@@ -42,10 +41,10 @@ const Order = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {productBillsData?.map((order) => (
-                                <OrderList
-                                    key={order._id}
-                                    order={order}
+                            {registrationData?.map((reg) => (
+                                <RegistrationList
+                                    key={reg._id}
+                                    reg={reg}
                                     count={count++}
                                 />
                             ))}
@@ -57,4 +56,4 @@ const Order = () => {
     );
 };
 
-export default Order;
+export default Registrations;

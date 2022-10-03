@@ -9,10 +9,12 @@ import TeamMember from '../../components/TeamMember/TeamMember';
 import AboutFdfn from './../../components/Home/AboutFdfn/AboutFdfn';
 import OurServices from './../../components/Home/OurServices/OurServices';
 import Testimonial from './../../components/Home/Testimonial/Testimonial';
+import TextScrolling from './../../components/Home/TextScrolling/TextScrolling';
 
 const Home = () => {
     return (
         <div>
+            <TextScrolling />
             <HomeBanner />
             <WhyFdfn />
             <HomePackages />

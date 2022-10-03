@@ -43,6 +43,12 @@ const sidebarMenu = [
         link: '/dashboard/orders',
     },
     {
+        id: 20,
+        title: 'Registrations',
+        icon: <MdOutlineProductionQuantityLimits />,
+        link: '/dashboard/registrations',
+    },
+    {
         id: 5,
         title: 'Add Package',
         icon: <FiPackage />,
@@ -113,6 +119,12 @@ const sidebarMenu = [
         title: 'Manage Coverage',
         icon: <VscDebugCoverage />,
         link: '/dashboard/manageCoverage',
+    },
+    {
+        id: 16,
+        title: 'Notifications',
+        icon: <FaUsers />,
+        link: '/dashboard/notification',
     },
 ];
 

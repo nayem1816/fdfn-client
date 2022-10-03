@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ProductsCard = ({ product }) => {
     return (
-        <div className="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 my-5 mx-2">
+        <div className="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 my-10 mx-2 ">
             <Link to={`/product/${product?._id}`}>
                 <img
                     style={{ width: '100%', height: '320px' }}
