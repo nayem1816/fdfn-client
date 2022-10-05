@@ -22,7 +22,7 @@ const OrderList = ({ order, count }) => {
         };
 
         axios
-            .post(`http://localhost:5000/api/v1/updateProductBill`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/updateProductBill`, {
                 ...orderUpdateData,
             })
             .then(function (response) {
@@ -43,7 +43,7 @@ const OrderList = ({ order, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`http://localhost:5000/api/v1/deleteProductBill`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/deleteProductBill`, {
                 id: id,
             })
             .then(function (response) {
@@ -307,7 +307,7 @@ const OrderList = ({ order, count }) => {
                                             <div className="relative">
                                                 <img
                                                     className="img-fluid"
-                                                    src={`http://${order?.image}`}
+                                                    src={`https://${order?.image}`}
                                                     alt=""
                                                 />
                                             </div>

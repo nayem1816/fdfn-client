@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
+import getFullDateAndTime from '../../../../services/getFullDateAndTime';
 
 const ProductList = ({ pd, count }) => {
     const [showModal, setShowModal] = React.useState(false);
@@ -13,6 +14,7 @@ const ProductList = ({ pd, count }) => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
+        const dateAndTime = getFullDateAndTime();
         console.log(data);
 
         const productData = {
@@ -20,10 +22,11 @@ const ProductList = ({ pd, count }) => {
             productName: data.productName,
             productPrice: data.productPrice,
             productDescription: data.productDescription,
+            updateOrderDate: dateAndTime,
         };
 
         axios
-            .post(`http://localhost:5000/api/v1/updateProduct`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/updateProduct`, {
                 ...productData,
             })
             .then(function (response) {
@@ -46,7 +49,7 @@ const ProductList = ({ pd, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`http://localhost:5000/api/v1/deleteProduct`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/deleteProduct`, {
                 id: id,
             })
             .then(function (response) {
@@ -81,7 +84,7 @@ const ProductList = ({ pd, count }) => {
                     <img
                         style={{ height: '50px', width: '80px' }}
                         className="img-fluid"
-                        src={`http://${pd?.image}`}
+                        src={`https://${pd?.image}`}
                         alt=""
                     />
                 </div>
@@ -138,7 +141,7 @@ const ProductList = ({ pd, count }) => {
                                     <div className="img">
                                         <img
                                             className="img-fluid p-5"
-                                            src={`http://${pd?.image}`}
+                                            src={`https://${pd?.image}`}
                                             alt=""
                                         />
                                     </div>

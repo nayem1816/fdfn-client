@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [user, loading] = useAuthState(auth);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/isAdmin?email=${user.email}`)
+        fetch(`https://fdfn-server.fdfn.net/api/v1/isAdmin?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data?.data?.adminEmail === user.email) {
@@ -20,7 +20,9 @@ const Dashboard = () => {
                 }
             });
 
-        fetch(`http://localhost:5000/api/v1/isModerator?email=${user.email}`)
+        fetch(
+            `https://fdfn-server.fdfn.net/api/v1/isModerator?email=${user.email}`
+        )
             .then((res) => res.json())
             .then((data) => {
                 if (data?.data?.adminEmail === user.email) {
@@ -76,20 +78,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-// setTimeout(() => {
-//     <div className="text-center my-5">
-//         <div id="notAuth" className="">
-//             <h1 className="text-center text-2xl font-bold">
-//                 You are not authorized to access this page.
-//             </h1>
-//             <a href="/" className="text-underline text-lg">
-//                 go to home page
-//             </a>
-//         </div>
-//     </div>;
-// }, 1000) && (
-//     <div className="text-center my-5">
-
-//     </div>
-// )

@@ -6,7 +6,7 @@ const ProductDetails = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/readProducts/${id}`)
+        fetch(`https://fdfn-server.fdfn.net/api/v1/readProducts/${id}`)
             .then((res) => res.json())
             .then((data) => setProductData(data.data));
     }, [id]);
@@ -18,20 +18,20 @@ const ProductDetails = () => {
                     <img
                         alt="ecommerce"
                         className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-                        src={`http://${productData?.image}`}
+                        src={`https://${productData?.image}`}
                     />
                     <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                         <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
                             {productData?.productName}
                         </h1>
-                        <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700" />
+                        <hr className="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700" />
                         <h2 className="text-gray-900 text-2xl title-font font-medium mb-1">
                             Description:
                         </h2>
                         <p className="leading-relaxed">
                             {productData?.productDescription}
                         </p>
-                        <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700" />
+                        <hr className="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700" />
                         <div className="flex">
                             <span className="title-font font-medium text-2xl text-gray-900">
                                 {productData?.productPrice} Tk.

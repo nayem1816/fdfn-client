@@ -28,7 +28,7 @@ const PackagesList = ({ pack, count }) => {
         };
 
         axios
-            .post(`http://localhost:5000/api/v1/updatePackage`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/updatePackage`, {
                 ...packageData,
             })
             .then(function (response) {
@@ -51,7 +51,7 @@ const PackagesList = ({ pack, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`http://localhost:5000/api/v1/deletePackage`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/deletePackage`, {
                 id: id,
             })
             .then(function (response) {
@@ -143,17 +143,13 @@ const PackagesList = ({ pack, count }) => {
                                                 </label>
                                                 <div className="relative">
                                                     <input
-                                                        {...register(
-                                                            'packageType',
-                                                            { required: true }
-                                                        )}
                                                         type="text"
                                                         id="input-group-1"
                                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                         defaultValue={
                                                             pack?.packageType
                                                         }
-                                                        disabled={editInput}
+                                                        disabled={true}
                                                     />
                                                 </div>
                                             </div>

@@ -5,7 +5,7 @@ const Registrations = () => {
     const [registrationData, setRegistrationData] = useState([]);
     let count = 1;
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/readRegPackage`)
+        fetch(`https://fdfn-server.fdfn.net/api/v1/readRegPackage`)
             .then((res) => res.json())
             .then((data) => setRegistrationData(data.data));
     }, []);

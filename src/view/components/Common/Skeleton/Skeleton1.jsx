@@ -5,10 +5,10 @@ const Skeleton1 = () => {
         <div
             style={{ height: '100vh' }}
             role="status"
-            class="flex justify-center items-center"
+            className="flex justify-center items-center"
         >
             <svg
-                class="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-red-600"
+                className="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-red-600"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ const Skeleton1 = () => {
                     fill="currentFill"
                 />
             </svg>
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
         </div>
     );
 };

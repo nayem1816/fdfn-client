@@ -78,56 +78,31 @@ const Footer = () => {
                         sx={{ display: 'flex', justifyContent: 'center' }}
                     >
                         <Box sx={{ textAlign: 'center' }}>
-                            <Typography sx={{ fontWeight: 600 }} variant="h5">
-                                Office
-                            </Typography>
+                            <p sx={{ fontWeight: 600 }}>Office</p>
                             <Box sx={{ mt: 2 }}>
-                                <Typography
-                                    sx={{ mt: 1 }}
-                                    variant="p"
-                                    component="p"
-                                >
-                                    Dhaladia, Rajabari
-                                </Typography>
-                                <Typography
-                                    sx={{ mt: 1 }}
-                                    variant="p"
-                                    component="p"
-                                >
-                                    Sreepur, Gazipur
-                                </Typography>
-                                <Typography
-                                    sx={{ mt: 1 }}
-                                    variant="p"
-                                    component="p"
-                                >
-                                    fdfn2016@gmail.com
-                                </Typography>
+                                <p sx={{ mt: 1 }}>Dhaladia, Rajabari</p>
+                                <p sx={{ mt: 1 }}>Sreepur, Gazipur</p>
                             </Box>
                             <Box sx={{ mt: 3 }}>
-                                <Typography
+                                <p
                                     sx={{
                                         display: 'flex',
                                         alignItems: 'center',
 
                                         mt: 1,
                                     }}
-                                    variant="p"
-                                    component="p"
                                 >
                                     <CallIcon /> +8801310913326
-                                </Typography>
-                                <Typography
+                                </p>
+                                <p
                                     sx={{
                                         display: 'flex',
                                         alignItems: 'center',
                                         mt: 1,
                                     }}
-                                    variant="p"
-                                    component="p"
                                 >
                                     <CallIcon /> +8801310913327
-                                </Typography>
+                                </p>
                             </Box>
                         </Box>
                     </Grid>
@@ -151,38 +126,30 @@ const Footer = () => {
                         }}
                     >
                         <Box>
-                            <Typography sx={{ fontWeight: 600 }} variant="h5">
-                                About Company
-                            </Typography>
+                            <p sx={{ fontWeight: 600 }}>About Company</p>
                             <Box sx={{ mt: 2 }}>
-                                <Typography
-                                    sx={{ mt: 1 }}
-                                    variant="p"
-                                    component="p"
-                                >
+                                <p sx={{ mt: 1 }}>
                                     <Link to="/">About</Link>
-                                </Typography>
-                                <Typography
-                                    sx={{ mt: 1 }}
-                                    variant="p"
-                                    component="p"
-                                >
+                                </p>
+                                <p sx={{ mt: 1 }}>
                                     <Link to="/">Contact</Link>
-                                </Typography>
-                                <Typography
-                                    sx={{ mt: 1 }}
-                                    variant="p"
-                                    component="p"
-                                >
+                                </p>
+                                <p sx={{ mt: 1 }}>
                                     <Link to="/">Test your speed</Link>
-                                </Typography>
+                                </p>
                             </Box>
                         </Box>
                     </Grid>
                 </Grid>
                 <Typography sx={{ textAlign: 'center', my: 8 }}>
-                    &copy; {year} All rights reserved & Developed by Md Nayem
-                    Hossain
+                    &copy; {year} All rights reserved & Developed by{' '}
+                    <a
+                        href="https://dev-nym.web.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Md Nayem Hossain
+                    </a>
                 </Typography>
             </Box>
         </Container>

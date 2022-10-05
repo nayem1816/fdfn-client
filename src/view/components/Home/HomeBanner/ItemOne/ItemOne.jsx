@@ -1,5 +1,6 @@
 import { Box, Button } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemOne = () => {
     return (
@@ -16,13 +17,15 @@ const ItemOne = () => {
                 </p>
             </Box>
             <Box sx={{ mt: '50px' }}>
-                <Button
-                    style={{ padding: '10px 20px' }}
-                    variant="contained"
-                    color="error"
-                >
-                    Contact Now
-                </Button>
+                <Link to="/contact">
+                    <Button
+                        style={{ padding: '10px 20px' }}
+                        variant="contained"
+                        color="error"
+                    >
+                        Contact Now
+                    </Button>
+                </Link>
             </Box>
         </Box>
     );

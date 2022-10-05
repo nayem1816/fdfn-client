@@ -22,7 +22,7 @@ const MemberList = ({ member, count }) => {
         };
 
         axios
-            .post(`http://localhost:5000/api/v1/updateMember`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/updateMember`, {
                 ...productData,
             })
             .then(function (response) {
@@ -44,7 +44,7 @@ const MemberList = ({ member, count }) => {
     };
     const handleDelete = (id) => {
         axios
-            .post(`http://localhost:5000/api/v1/deleteMember`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/deleteMember`, {
                 id: id,
             })
             .then(function (response) {
@@ -78,7 +78,7 @@ const MemberList = ({ member, count }) => {
                     <img
                         style={{ height: '50px', width: '60px' }}
                         className="img-fluid"
-                        src={`http://${member?.image}`}
+                        src={`https://${member?.image}`}
                         alt=""
                     />
                 </div>
@@ -135,7 +135,7 @@ const MemberList = ({ member, count }) => {
                                     <div className="img">
                                         <img
                                             className="img-fluid p-5"
-                                            src={`http://${member?.image}`}
+                                            src={`https://${member?.image}`}
                                             alt=""
                                         />
                                     </div>

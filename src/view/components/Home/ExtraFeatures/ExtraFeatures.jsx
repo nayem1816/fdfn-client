@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid } from '@mui/material';
 
 const ExtraFeatures = () => {
     return (
@@ -28,10 +28,10 @@ const ExtraFeatures = () => {
                                 justifyContent: 'center',
                             }}
                         >
-                            <Typography>
+                            <div>
                                 <h3>Happy Clients</h3>
                                 <h1 style={{ color: 'red' }}>1200+</h1>
-                            </Typography>
+                            </div>
                         </Box>
                     </Grid>
                     <Grid
@@ -60,10 +60,10 @@ const ExtraFeatures = () => {
                                 justifyContent: 'center',
                             }}
                         >
-                            <Typography>
+                            <div>
                                 <h3>Live Tv</h3>
                                 <h1 style={{ color: 'red' }}>20+</h1>
-                            </Typography>
+                            </div>
                         </Box>
                     </Grid>
                     <Grid
@@ -92,10 +92,10 @@ const ExtraFeatures = () => {
                                 justifyContent: 'center',
                             }}
                         >
-                            <Typography>
+                            <div>
                                 <h3>FTP</h3>
                                 <h1 style={{ color: 'red' }}>30+</h1>
-                            </Typography>
+                            </div>
                         </Box>
                     </Grid>
                     <Grid
@@ -124,10 +124,10 @@ const ExtraFeatures = () => {
                                 justifyContent: 'center',
                             }}
                         >
-                            <Typography>
+                            <div>
                                 <h3>BDIX</h3>
                                 <h1 style={{ color: 'red' }}>100+</h1>
-                            </Typography>
+                            </div>
                         </Box>
                     </Grid>
                 </Grid>

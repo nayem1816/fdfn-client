@@ -13,7 +13,7 @@ const TvCard = () => {
     const [tvData, setTvData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/v1/readTv')
+        fetch('https://fdfn-server.fdfn.net/api/v1/readTv')
             .then((response) => response.json())
             .then((result) => setTvData(result.data))
             .catch((error) => console.log('error', error));
@@ -45,8 +45,6 @@ const TvCard = () => {
                                         <CardContent>
                                             <Typography
                                                 gutterBottom
-                                                variant="h5"
-                                                component="div"
                                                 sx={{ color: 'white' }}
                                             >
                                                 {tv.channelName}

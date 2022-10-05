@@ -26,7 +26,6 @@ const ContactBox = () => {
                     >
                         <div className="p-3 text-white">
                             <p className="m-0">+8801310913326</p>
-                            <p className="m-0">fdfn2016@gmail.com</p>
                         </div>
                     </div>
                 </div>

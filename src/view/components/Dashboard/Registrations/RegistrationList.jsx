@@ -24,7 +24,7 @@ const RegistrationList = ({ reg, count }) => {
         console.log(registrationUpdateData);
 
         axios
-            .post(`http://localhost:5000/api/v1/updateRegPackage`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/updateRegPackage`, {
                 ...registrationUpdateData,
             })
             .then(function (response) {
@@ -46,7 +46,7 @@ const RegistrationList = ({ reg, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`http://localhost:5000/api/v1/deleteRegPackage`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/deleteRegPackage`, {
                 id: id,
             })
             .then(function (response) {
@@ -54,7 +54,7 @@ const RegistrationList = ({ reg, count }) => {
                     position: 'top-right',
                     autoClose: 1000,
                 });
-                // reload page
+                // // reload page
                 window.location.reload();
             })
             .catch(function (error) {
@@ -411,7 +411,7 @@ const RegistrationList = ({ reg, count }) => {
                                             <div className="relative">
                                                 <img
                                                     className="img-fluid"
-                                                    src={`http://${reg?.yourPhoto}`}
+                                                    src={`https://${reg?.yourPhoto}`}
                                                     alt=""
                                                 />
                                             </div>
@@ -423,7 +423,7 @@ const RegistrationList = ({ reg, count }) => {
                                             <div className="relative">
                                                 <img
                                                     className="img-fluid"
-                                                    src={`http://${reg?.nidFront}`}
+                                                    src={`https://${reg?.nidFront}`}
                                                     alt=""
                                                 />
                                             </div>
@@ -435,7 +435,7 @@ const RegistrationList = ({ reg, count }) => {
                                             <div className="relative">
                                                 <img
                                                     className="img-fluid"
-                                                    src={`http://${reg?.nidBack}`}
+                                                    src={`https://${reg?.nidBack}`}
                                                     alt=""
                                                 />
                                             </div>

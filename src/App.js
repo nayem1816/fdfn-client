@@ -82,6 +82,10 @@ const Registrations = React.lazy(() =>
 const Notification = React.lazy(() =>
     import('./view/components/Dashboard/CreateNotification/Notification')
 );
+const MyOrder = React.lazy(() => import('./view/pages/MyOrder/MyOrder'));
+const MyRegistration = React.lazy(() =>
+    import('./view/pages/MyRegistration/MyRegistration')
+);
 
 function App() {
     return (
@@ -107,6 +111,11 @@ function App() {
                         <Route
                             path="registration/paymentRegistration/:id"
                             element={<PaymentReg />}
+                        />
+                        <Route path="my-orders" element={<MyOrder />} />
+                        <Route
+                            path="my-registration"
+                            element={<MyRegistration />}
                         />
                         <Route path="ftpSite" element={<FtpSite />} />
                         <Route path="liveTv" element={<LiveTv />} />

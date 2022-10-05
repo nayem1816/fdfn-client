@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardContent, Typography, IconButton } from '@mui/material';
+import { Box, Card, CardContent, p, IconButton } from '@mui/material';
 import AppShortcutRoundedIcon from '@mui/icons-material/AppShortcutRounded';
 
 const ItemFive = () => {
@@ -13,19 +13,15 @@ const ItemFive = () => {
                     <IconButton variant="contained" color="error" size="large">
                         <AppShortcutRoundedIcon sx={{ fontSize: 40 }} />
                     </IconButton>
-                    <Typography
-                        variant="h5"
-                        component="div"
-                        sx={{ mt: '25px', fontWeight: 600 }}
-                    >
+                    <p sx={{ mt: '25px', fontWeight: 600 }}>
                         Software solution
-                    </Typography>
+                    </p>
                     <Box sx={{ mt: '25px' }}>
-                        <Typography color="text.secondary">
+                        <p color="text.secondary">
                             Software solutions professionals can be employed in
                             large, medium and small enterprises as software
                             engineer.
-                        </Typography>
+                        </p>
                     </Box>
                 </CardContent>
             </Card>

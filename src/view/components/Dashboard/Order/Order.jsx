@@ -5,7 +5,7 @@ const Order = () => {
     const [productBillsData, setProductBillsData] = useState([]);
     let count = 1;
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/readProductBill`)
+        fetch(`https://fdfn-server.fdfn.net/api/v1/readProductBill`)
             .then((res) => res.json())
             .then((data) => setProductBillsData(data.data));
     }, []);

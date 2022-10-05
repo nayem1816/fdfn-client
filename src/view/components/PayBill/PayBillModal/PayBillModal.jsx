@@ -1,4 +1,4 @@
-import { Modal, Box, Typography } from '@mui/material';
+import { Modal, Box, p } from '@mui/material';
 import React from 'react';
 
 const style = {
@@ -22,13 +22,11 @@ const PayBillModal = ({ open, handleClose }) => {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Text in a modal
-                </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                <p id="modal-modal-title">Text in a modal</p>
+                <p id="modal-modal-description" sx={{ mt: 2 }}>
                     Duis mollis, est non commodo luctus, nisi erat porttitor
                     ligula.
-                </Typography>
+                </p>
             </Box>
         </Modal>
     );

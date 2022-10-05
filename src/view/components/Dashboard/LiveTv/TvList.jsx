@@ -11,7 +11,7 @@ const TvList = ({ tv, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`http://localhost:5000/api/v1/deleteTv`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/deleteTv`, {
                 id: id,
             })
             .then(function (response) {
@@ -41,7 +41,7 @@ const TvList = ({ tv, count }) => {
                     <img
                         style={{ height: '50px', width: '80px' }}
                         className="img-fluid"
-                        src={`http://${tv?.image}`}
+                        src={`https://${tv?.image}`}
                         alt=""
                     />
                 </div>
@@ -102,7 +102,7 @@ const TvList = ({ tv, count }) => {
                                     <div className="img">
                                         <img
                                             className="img-fluid p-5"
-                                            src={`http://${tv?.image}`}
+                                            src={`https://${tv?.image}`}
                                             alt=""
                                         />
                                     </div>

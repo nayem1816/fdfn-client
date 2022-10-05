@@ -23,7 +23,10 @@ const AddProducts = () => {
             redirect: 'follow',
         };
 
-        fetch('http://localhost:5000/api/v1/createProduct', requestOptions)
+        fetch(
+            'https://fdfn-server.fdfn.net/api/v1/createProduct',
+            requestOptions
+        )
             .then((response) => response.text())
             .then((result) => {
                 setGetProduct(result);

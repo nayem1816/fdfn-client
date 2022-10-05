@@ -18,7 +18,7 @@ const AddTv = () => {
             redirect: 'follow',
         };
 
-        fetch('http://localhost:5000/api/v1/createTv', requestOptions)
+        fetch('https://fdfn-server.fdfn.net/api/v1/createTv', requestOptions)
             .then((response) => response.text())
             .then((result) => {
                 setGetTv(result);

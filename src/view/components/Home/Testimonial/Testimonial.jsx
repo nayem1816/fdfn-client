@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
-import { Avatar, Container, Grid, Box, Typography } from '@mui/material';
+import { Avatar, Container, Grid, Box, p } from '@mui/material';
 import profileAvatar from '../../../../assets/images/profile.png';
 import reviewImg from '../../../../assets/images/review.png';
 
@@ -40,25 +40,23 @@ const Testimonial = () => {
                 }}
             >
                 <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
-                    <Typography variant="h6">TESTIMONIAL</Typography>
-                    <Typography variant="h4" sx={{ my: 3 }}>
-                        What Our core client say ?
-                    </Typography>
+                    <p>TESTIMONIAL</p>
+                    <p sx={{ my: 3 }}>What Our core client say ?</p>
                     <Carousel>
                         {items.map((item, i) => (
                             <Box
+                                key={i}
                                 sx={{
                                     textAlign: 'center',
                                     p: 5,
                                     // border: '1px solid #e0e0e0',
                                 }}
                             >
-                                <Typography
+                                <p
                                     sx={{
                                         display: 'flex',
                                         justifyContent: 'center',
                                     }}
-                                    variant="div"
                                 >
                                     <Avatar
                                         alt="Remy Sharp"
@@ -70,13 +68,9 @@ const Testimonial = () => {
                                             justifyContent: 'center',
                                         }}
                                     />
-                                </Typography>
-                                <Typography variant="h5">
-                                    {item.name}
-                                </Typography>
-                                <Typography variant="p">
-                                    {item.description}
-                                </Typography>
+                                </p>
+                                <p>{item.name}</p>
+                                <p variant="p">{item.description}</p>
                             </Box>
                         ))}
                     </Carousel>

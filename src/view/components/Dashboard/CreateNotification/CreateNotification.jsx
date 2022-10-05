@@ -7,7 +7,7 @@ const CreateNotification = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         axios
-            .post('http://localhost:5000/api/v1/createNotification', {
+            .post('https://fdfn-server.fdfn.net/api/v1/createNotification', {
                 ...data,
             })
             .then(function (response) {

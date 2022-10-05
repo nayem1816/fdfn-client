@@ -23,7 +23,7 @@ const Signup = () => {
     const location = useLocation();
 
     if (loading || updating) {
-        return <p>Loading...</p>;
+        console.log(loading);
     }
     if (error || Uerror) {
         toast.error('Please try again', {
@@ -39,7 +39,30 @@ const Signup = () => {
 
     let from = location.state?.from?.pathname || '/';
     if (user) {
+        // const userData = {
+        //     fullName: user.displayName,
+        //     email: user.user.email,
+        // };
+
+        // // console.log(user.user.email);
+        // // console.log(user.user.displayName);
+
+        // var requestOptions = {
+        //     method: 'POST',
+        //     body: userData,
+        //     redirect: 'follow',
+        // };
+
+        // fetch('https://fdfn-server.fdfn.net/api/v1/profile', requestOptions)
+        //     .then((response) => response.text())
+        //     .then((result) => {
+        //         console.log(result);
+        //     })
+        //     .catch((error) => console.log('error', error));
+
         navigate(from, { replace: true });
+        // reload the page
+        window.location.reload();
     }
 
     return (
@@ -54,7 +77,7 @@ const Signup = () => {
                             htmlFor="name"
                             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                            Your email
+                            Your name
                         </label>
                         <input
                             {...register('name', { required: true })}

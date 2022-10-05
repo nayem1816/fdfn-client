@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 const TextScrolling = () => {
     const [text, setText] = React.useState('Welcome to FDFN');
     useEffect(() => {
-        fetch('http://localhost:5000/api/v1/readNotification')
+        fetch('https://fdfn-server.fdfn.net/api/v1/readNotification')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

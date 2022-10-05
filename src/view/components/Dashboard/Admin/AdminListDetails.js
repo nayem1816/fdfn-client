@@ -17,7 +17,7 @@ const AdminListDetails = ({ admin, count }) => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/isAdmin?email=${user.email}`)
+        fetch(`https://fdfn-server.fdfn.net/api/v1/isAdmin?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data?.data?.adminEmail === user.email) {
@@ -25,7 +25,7 @@ const AdminListDetails = ({ admin, count }) => {
                 }
             });
 
-        // fetch(`http://localhost:5000/api/v1/isModerator?email=${user.email}`)
+        // fetch(`https://fdfn-server.fdfn.net/api/v1/isModerator?email=${user.email}`)
         //     .then((res) => res.json())
         //     .then((data) => {
         //         if (data?.data?.adminEmail === user.email) {
@@ -37,7 +37,7 @@ const AdminListDetails = ({ admin, count }) => {
 
     const handleDelete = (id, adminRole) => {
         axios
-            .post(`http://localhost:5000/api/v1/deleteAdmin`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/deleteAdmin`, {
                 id: id,
                 adminRole: adminRole,
             })

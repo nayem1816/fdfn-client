@@ -27,7 +27,7 @@ const ManageNotification = () => {
 
     const handleDelete = (id) => {
         axios
-            .post(`http://localhost:5000/api/v1/deleteNotification`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/deleteNotification`, {
                 id: id,
             })
             .then(function (response) {

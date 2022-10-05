@@ -35,7 +35,7 @@ const EconomyPackages = () => {
                 <Grid container item spacing={4}>
                     {economyPackage.map((packageData, index) => (
                         <Grid
-                            key={packageData?.id}
+                            key={packageData?._id}
                             item
                             xs={12}
                             sm={12}
@@ -56,7 +56,10 @@ const EconomyPackages = () => {
                                         }}
                                     >
                                         <img src={kiteIcon} alt="" />
-                                        <h2 style={{ padding: '10px 0' }}>
+                                        <h2
+                                            style={{ padding: '10px 0' }}
+                                            className="text-2xl"
+                                        >
                                             {packageData?.packageName}
                                         </h2>
                                     </Box>
@@ -83,7 +86,7 @@ const EconomyPackages = () => {
                                             {packageData?.totalMb}
                                         </Typography>
                                         <Typography sx={{ ml: 2 }}>
-                                            <h3>MBPS</h3>
+                                            <h3>Mbps</h3>
                                             <p>
                                                 Unlimited <br /> Uses{' '}
                                             </p>
@@ -169,16 +172,16 @@ const EconomyPackages = () => {
                                     </Box>
                                 </CardContent>
                                 <Box sx={{ textAlign: 'center' }}>
-                                    <Button
-                                        sx={{ p: '15px 50px' }}
-                                        variant="contained"
+                                    <Link
+                                        to={`/registration/${packageData?._id}`}
                                     >
-                                        <Link
-                                            to={`/registration/${packageData?._id}`}
+                                        <Button
+                                            sx={{ p: '15px 50px' }}
+                                            variant="contained"
                                         >
                                             CHOOSE
-                                        </Link>
-                                    </Button>
+                                        </Button>
+                                    </Link>
                                 </Box>
                             </Card>
                         </Grid>

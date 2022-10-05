@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ProductsCard from './ProductsCard';
-import { Typography } from '@mui/material';
+import { p } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -31,7 +31,7 @@ const Products = () => {
     return (
         <div className="container mx-auto">
             <div className="px-10 mt-10">
-                <Typography variant="h6">Products</Typography>
+                <p>Products</p>
             </div>
             <div className="">
                 <Swiper

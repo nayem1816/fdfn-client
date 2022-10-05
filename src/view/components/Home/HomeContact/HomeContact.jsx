@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Box, Grid, Typography, Button } from '@mui/material';
+import { Container, Box, Grid, Button } from '@mui/material';
 import CallIcon from '@mui/icons-material/Call';
+import { Link } from 'react-router-dom';
 
 const HomeContact = () => {
     return (
@@ -15,9 +16,9 @@ const HomeContact = () => {
             >
                 <Grid container spacing={4}>
                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                        <Typography variant="h4">Stay Connected</Typography>
+                        <p>Stay Connected</p>
                         <Box sx={{ mt: 3 }}>
-                            <Typography
+                            <p
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -28,8 +29,8 @@ const HomeContact = () => {
                                 component="p"
                             >
                                 <CallIcon /> +8801310913326
-                            </Typography>
-                            <Typography
+                            </p>
+                            <p
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -39,7 +40,7 @@ const HomeContact = () => {
                                 component="p"
                             >
                                 <CallIcon /> +8801310913327
-                            </Typography>
+                            </p>
                         </Box>
                     </Grid>
                     <Grid
@@ -62,13 +63,15 @@ const HomeContact = () => {
                         }}
                     >
                         <Box>
-                            <Button
-                                style={{ padding: '20px 30px' }}
-                                variant="contained"
-                                color="error"
-                            >
-                                Contact Now
-                            </Button>
+                            <Link to="/contact">
+                                <Button
+                                    style={{ padding: '20px 30px' }}
+                                    variant="contained"
+                                    color="error"
+                                >
+                                    Contact Now
+                                </Button>
+                            </Link>
                         </Box>
                     </Grid>
                 </Grid>

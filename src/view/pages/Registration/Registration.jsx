@@ -46,7 +46,10 @@ const Registration = () => {
             redirect: 'follow',
         };
 
-        fetch('http://localhost:5000/api/v1/createRegPackage', requestOptions)
+        fetch(
+            'https://fdfn-server.fdfn.net/api/v1/createRegPackage',
+            requestOptions
+        )
             .then((response) => response.text())
             .then((result) => {
                 console.log(result);
@@ -72,7 +75,7 @@ const Registration = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/readPackages/${id}`)
+        fetch(`https://fdfn-server.fdfn.net/api/v1/readPackages/${id}`)
             .then((res) => res.json())
             .then((data) => setPackageData(data.data));
     }, [id]);
@@ -92,10 +95,10 @@ const Registration = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     className="my-5 grid grid-cols-1 lg:grid-cols-2 gap-5"
                 >
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="name1"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Subscriber Name*
                         </label>
@@ -110,10 +113,10 @@ const Registration = () => {
                             required
                         />
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="name2"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Authorized Name
                         </label>
@@ -125,10 +128,10 @@ const Registration = () => {
                             placeholder="Enter your name"
                         />
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="email"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Email*
                         </label>
@@ -143,10 +146,10 @@ const Registration = () => {
                             required
                         />
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="phone"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Contact Number*
                         </label>
@@ -161,10 +164,10 @@ const Registration = () => {
                             required
                         />
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="nid"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             National Id Number
                         </label>
@@ -221,18 +224,18 @@ const Registration = () => {
                             type="file"
                         />
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="birth"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Date Of Birth*
                         </label>
-                        <div class="relative">
-                            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                        <div className="relative">
+                            <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                                 <svg
                                     aria-hidden="true"
-                                    class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                                    className="w-5 h-5 text-gray-500 dark:text-gray-400"
                                     fill="currentColor"
                                     viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -250,7 +253,7 @@ const Registration = () => {
                                 })}
                                 type="date"
                                 id="birth"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Select date"
                             />
                         </div>
@@ -275,10 +278,10 @@ const Registration = () => {
                             <option value="Others">Others</option>
                         </select>
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="occupation"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Occupation
                         </label>
@@ -290,10 +293,10 @@ const Registration = () => {
                             placeholder="Enter your name"
                         />
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="fatherName"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Father Name
                         </label>
@@ -305,10 +308,10 @@ const Registration = () => {
                             placeholder="Enter your name"
                         />
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="motherName"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Mother Name
                         </label>
@@ -320,10 +323,10 @@ const Registration = () => {
                             placeholder="Enter your name"
                         />
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="googleLocationPinPoint"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Google Map Location Pin Point
                         </label>
@@ -335,10 +338,10 @@ const Registration = () => {
                             placeholder="Enter your name"
                         />
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <label
                             for="address"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Address*
                         </label>

@@ -15,7 +15,10 @@ const AddCoverage = () => {
             },
         };
 
-        fetch('http://localhost:5000/api/v1/createCoverage', requestOptions)
+        fetch(
+            'https://fdfn-server.fdfn.net/api/v1/createCoverage',
+            requestOptions
+        )
             .then((response) => response.text())
             .then((result) => {
                 setGetFtp(result);

@@ -5,7 +5,7 @@ export const fetchData = createAsyncThunk(
     'all_data/fetchData',
     async (path) => {
         const response = await axios.get(
-            `http://localhost:5000/api/v1/${path}`
+            `https://fdfn-server.fdfn.net/api/v1/${path}`
         );
         return response?.data;
     }

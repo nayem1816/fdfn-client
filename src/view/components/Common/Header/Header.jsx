@@ -4,6 +4,7 @@ import logo from '../../../../assets/icons/fdfn-logo.png';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../../../firebase.config';
 import User from './User';
+import { Link } from 'react-router-dom';
 
 const pages = [
     { id: 1, name: 'Home', link: 'home' },
@@ -24,17 +25,6 @@ const Header = () => {
     const handleMenu = () => {
         setOpen(!open);
     };
-
-    if (loading) {
-        return (
-            <a
-                href="/login"
-                className="block px-2 py-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 hover:text-red-600"
-            >
-                Login
-            </a>
-        );
-    }
 
     if (error) return <p>Error: {error.message}</p>;
 
@@ -80,26 +70,35 @@ const Header = () => {
                     <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 lg:flex-row lg:space-x-4 lg:mt-0 lg:text-sm lg:font-medium lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700">
                         {pages.map((page) => (
                             <li key={page.id} className="mt-2 md:mt-0">
-                                <a
-                                    href={`/${page.link}`}
+                                <Link
+                                    to={`/${page.link}`}
                                     className="block px-2 py-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 hover:text-red-600"
                                 >
                                     {page.name}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                         {user ? (
-                            <li className="mt-2 md:mt-0">
-                                <User />
-                            </li>
-                        ) : (
-                            <li className="mt-2 md:mt-0">
-                                <a
-                                    href="/login"
+                            loading ? (
+                                <Link
+                                    to="/login"
                                     className="block px-2 py-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 hover:text-red-600"
                                 >
                                     Login
-                                </a>
+                                </Link>
+                            ) : (
+                                <li className="mt-2 md:mt-0">
+                                    <User />
+                                </li>
+                            )
+                        ) : (
+                            <li className="mt-2 md:mt-0">
+                                <Link
+                                    to="/login"
+                                    className="block px-2 py-2 text-gray-700 rounded-lg hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 hover:text-red-600"
+                                >
+                                    Login
+                                </Link>
                             </li>
                         )}
                     </ul>

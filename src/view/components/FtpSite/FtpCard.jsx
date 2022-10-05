@@ -14,7 +14,7 @@ const FtpCard = () => {
     const [ftpData, setFtpData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/v1/readFtp')
+        fetch('https://fdfn-server.fdfn.net/api/v1/readFtp')
             .then((response) => response.json())
             .then((result) => setFtpData(result.data))
             .catch((error) => console.log('error', error));
@@ -56,8 +56,6 @@ const FtpCard = () => {
                                         >
                                             <Typography
                                                 gutterBottom
-                                                variant="h5"
-                                                component="div"
                                                 sx={{ color: 'white' }}
                                             >
                                                 {ftp.ftpName}

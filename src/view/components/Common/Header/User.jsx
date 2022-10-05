@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../../../firebase.config';
+import { Link } from 'react-router-dom';
 
 const User = () => {
     const [isAdmin, setIsAdmin] = React.useState(false);
@@ -12,7 +13,7 @@ const User = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/isAdmin?email=${user.email}`)
+        fetch(`https://fdfn-server.fdfn.net/api/v1/isAdmin?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data?.data?.adminEmail === user.email) {
@@ -20,7 +21,9 @@ const User = () => {
                 }
             });
 
-        fetch(`http://localhost:5000/api/v1/isModerator?email=${user.email}`)
+        fetch(
+            `https://fdfn-server.fdfn.net/api/v1/isModerator?email=${user.email}`
+        )
             .then((res) => res.json())
             .then((data) => {
                 if (data?.data?.adminEmail === user.email) {
@@ -72,21 +75,29 @@ const User = () => {
                 >
                     {isAdmin === true || isModerator === true ? (
                         <li>
-                            <a
-                                href="/dashboard"
+                            <Link
+                                to="/dashboard"
                                 className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                             >
                                 Dashboard
-                            </a>
+                            </Link>
                         </li>
                     ) : null}
                     <li>
-                        <a
-                            href="/"
+                        <Link
+                            to="/my-orders"
                             className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                             Orders
-                        </a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/my-registration"
+                            className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                            My Registration
+                        </Link>
                     </li>
                 </ul>
                 <div className="py-1">

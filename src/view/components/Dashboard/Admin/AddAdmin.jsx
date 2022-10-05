@@ -18,7 +18,7 @@ const AddAdmin = () => {
         };
 
         axios
-            .post('http://localhost:5000/api/v1/createAdmin', {
+            .post('https://fdfn-server.fdfn.net/api/v1/createAdmin', {
                 ...adminData,
             })
             .then(function (response) {

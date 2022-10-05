@@ -4,6 +4,7 @@ import { signOut } from 'firebase/auth';
 import { Dropdown, Avatar } from 'flowbite-react';
 import auth from './../../../../firebase.config';
 import profile from '../../../../assets/images/profile.png';
+import { Link } from 'react-router-dom';
 
 const DashboardHeader = ({ sidebarMenu, setSidebarMenu }) => {
     const [user, loading] = useAuthState(auth);
@@ -72,7 +73,7 @@ const DashboardHeader = ({ sidebarMenu, setSidebarMenu }) => {
                             </span>
                         </Dropdown.Header>
                         <Dropdown.Item>
-                            <a href="/dashboard">Dashboard</a>
+                            <Link href="/dashboard">Dashboard</Link>
                         </Dropdown.Item>
                         <Dropdown.Item>Settings</Dropdown.Item>
                         <Dropdown.Divider />

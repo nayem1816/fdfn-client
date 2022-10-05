@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Container, Box, Typography, TextField, Button } from '@mui/material';
+import { Container, Box, p, TextField, Button } from '@mui/material';
 import CustomAlert from './../../Common/Custom/CustomBtn/CustomAlert';
 import { useForm } from 'react-hook-form';
 import PayBillModal from '../PayBillModal/PayBillModal';
@@ -27,10 +27,7 @@ const PaymentCard = () => {
             body: JSON.stringify(data),
         };
 
-        fetch(
-            'https://fdfnserverapi.fdfn.net/api/v1/createBill',
-            requestOptions
-        )
+        fetch('http://fdfnserverapi.fdfn.net/api/v1/createBill', requestOptions)
             .then((response) => response.json())
             .then((result) => {
                 setBackData(result);
@@ -42,19 +39,13 @@ const PaymentCard = () => {
     return (
         <Container>
             <Box sx={{ border: '1px solid #e0e0e0', p: 3, borderRadius: 1 }}>
-                <Typography
-                    sx={{ textAlign: 'center' }}
-                    variant="h4"
-                    component="h4"
-                >
-                    FDFN Monthly Bill Payment
-                </Typography>
+                <p sx={{ textAlign: 'center' }}>FDFN Monthly Bill Payment</p>
                 <hr
                     style={{ margin: '10px 0px', border: '1px solid #e0e0e0' }}
                 />
-                <Typography sx={{ my: 2 }} component="h5">
+                <p sx={{ my: 2 }} component="h5">
                     How to make pay bill?{' '}
-                    <Typography
+                    <p
                         component="span"
                         sx={{
                             cursor: 'pointer',
@@ -64,9 +55,9 @@ const PaymentCard = () => {
                         onClick={handleOpen}
                     >
                         click here...
-                    </Typography>
+                    </p>
                     <PayBillModal open={open} handleClose={handleClose} />
-                </Typography>
+                </p>
                 <Box>
                     <CustomAlert
                         sx={{ display: alertBox ? 'block' : 'none' }}

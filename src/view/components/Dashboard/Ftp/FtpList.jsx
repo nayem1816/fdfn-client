@@ -11,7 +11,7 @@ const FtpList = ({ ftp, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`http://localhost:5000/api/v1/deleteFtp`, {
+            .post(`https://fdfn-server.fdfn.net/api/v1/deleteFtp`, {
                 id: id,
             })
             .then(function (response) {
@@ -41,7 +41,7 @@ const FtpList = ({ ftp, count }) => {
                     <img
                         style={{ height: '50px', width: '80px' }}
                         className="img-fluid"
-                        src={`http://${ftp?.image}`}
+                        src={`https://${ftp?.image}`}
                         alt=""
                     />
                 </div>
@@ -102,7 +102,7 @@ const FtpList = ({ ftp, count }) => {
                                     <div className="img">
                                         <img
                                             className="img-fluid p-5"
-                                            src={`http://${ftp?.image}`}
+                                            src={`https://${ftp?.image}`}
                                             alt=""
                                         />
                                     </div>

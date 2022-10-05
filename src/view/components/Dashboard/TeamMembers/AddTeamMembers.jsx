@@ -22,7 +22,10 @@ const AddTeamMembers = () => {
 
         console.log(requestOptions);
 
-        fetch('http://localhost:5000/api/v1/createMember', requestOptions)
+        fetch(
+            'https://fdfn-server.fdfn.net/api/v1/createMember',
+            requestOptions
+        )
             .then((response) => response.text())
             .then((result) => {
                 setGetMember(result);

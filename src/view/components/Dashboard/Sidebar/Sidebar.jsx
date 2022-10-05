@@ -1,6 +1,5 @@
 import React from 'react';
 import eShopLogo from '../../../../assets/icons/fdfn-logo.png';
-import { signOut } from 'firebase/auth';
 import auth from './../../../../firebase.config';
 import {
     MdSpaceDashboard,
@@ -16,6 +15,7 @@ import { HiPrinter } from 'react-icons/hi';
 import { IoVideocam } from 'react-icons/io5';
 import { VscDebugCoverage } from 'react-icons/vsc';
 import { SiCoveralls } from 'react-icons/si';
+import { Link } from 'react-router-dom';
 
 const sidebarMenu = [
     {
@@ -129,9 +129,6 @@ const sidebarMenu = [
 ];
 
 const Sidebar = () => {
-    const logout = () => {
-        signOut(auth);
-    };
     return (
         <aside className="w-64 h-full" aria-label="Sidebar">
             <div
@@ -146,8 +143,8 @@ const Sidebar = () => {
                 <ul className="space-y-3 my-10">
                     {sidebarMenu.map((item) => (
                         <li key={item.id}>
-                            <a
-                                href={item.link}
+                            <Link
+                                to={item.link}
                                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                             >
                                 <span className="flex items-center justify-center h-8 w-8 text-gray-500">
@@ -155,12 +152,12 @@ const Sidebar = () => {
                                 </span>
 
                                 <span className="ml-3">{item.title}</span>
-                            </a>
+                            </Link>
                         </li>
                     ))}
                     <li>
                         <a
-                            onClick={logout}
+                            onClick={() => auth.signOut()}
                             href="/"
                             className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                         >
@@ -169,7 +166,7 @@ const Sidebar = () => {
                                 className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 fill="currentColor"
                                 viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns="https://www.w3.org/2000/svg"
                             >
                                 <path
                                     fillRule="evenodd"

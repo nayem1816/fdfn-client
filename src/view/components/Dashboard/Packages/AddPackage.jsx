@@ -20,7 +20,7 @@ const AddPackage = () => {
         };
 
         axios
-            .post('http://localhost:5000/api/v1/createPackage', {
+            .post('https://fdfn-server.fdfn.net/api/v1/createPackage', {
                 ...packagesData,
             })
             .then(function (response) {
