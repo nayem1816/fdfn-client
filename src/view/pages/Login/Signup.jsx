@@ -53,7 +53,7 @@ const Signup = () => {
         //     redirect: 'follow',
         // };
 
-        // fetch('https://fdfn-server.fdfn.net/api/v1/profile', requestOptions)
+        // fetch('https://fdfn-server-v2.vercel.app/api/v1/profile', requestOptions)
         //     .then((response) => response.text())
         //     .then((result) => {
         //         console.log(result);

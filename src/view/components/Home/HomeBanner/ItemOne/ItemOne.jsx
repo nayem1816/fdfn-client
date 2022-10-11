@@ -12,8 +12,8 @@ const ItemOne = () => {
             </Box>
             <Box sx={{ mt: '50px' }}>
                 <p style={{ fontSize: '22px' }}>
-                    We provide fastest Internet Service in Dhaladia 24/7 and 365
-                    days.
+                    We provide fastest Internet Service in Bangladesh 24/7 and
+                    365 days.
                 </p>
             </Box>
             <Box sx={{ mt: '50px' }}>

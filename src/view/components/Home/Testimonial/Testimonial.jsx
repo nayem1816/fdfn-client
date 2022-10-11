@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
-import { Avatar, Container, Grid, Box, p } from '@mui/material';
+import { Avatar, Container, Grid, Box, Typography } from '@mui/material';
 import profileAvatar from '../../../../assets/images/profile.png';
 import reviewImg from '../../../../assets/images/review.png';
 
@@ -40,8 +40,10 @@ const Testimonial = () => {
                 }}
             >
                 <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
-                    <p>TESTIMONIAL</p>
-                    <p sx={{ my: 3 }}>What Our core client say ?</p>
+                    <Typography>TESTIMONIAL</Typography>
+                    <Typography sx={{ my: 3 }}>
+                        What Our core client say ?
+                    </Typography>
                     <Carousel>
                         {items.map((item, i) => (
                             <Box
@@ -52,7 +54,7 @@ const Testimonial = () => {
                                     // border: '1px solid #e0e0e0',
                                 }}
                             >
-                                <p
+                                <Typography
                                     sx={{
                                         display: 'flex',
                                         justifyContent: 'center',
@@ -68,9 +70,11 @@ const Testimonial = () => {
                                             justifyContent: 'center',
                                         }}
                                     />
-                                </p>
-                                <p>{item.name}</p>
-                                <p variant="p">{item.description}</p>
+                                </Typography>
+                                <Typography>{item.name}</Typography>
+                                <Typography variant="p">
+                                    {item.description}
+                                </Typography>
                             </Box>
                         ))}
                     </Carousel>

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const CoverageList = ({ coverage, count }) => {
     const handleDelete = (id) => {
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/deleteCoverage`, {
+            .post(`https://fdfn-server-v2.vercel.app/api/v1/deleteCoverage`, {
                 id: id,
             })
             .then(function (response) {

@@ -20,7 +20,7 @@ const PackagesList = ({ pack, count }) => {
             packageType: data.packageType,
             packageName: data.packageName,
             totalMb: data.totalMb,
-            packagePrice: data.packagePrice,
+            price: data.price,
             feature1: data.feature1,
             feature2: data.feature2,
             feature3: data.feature3,
@@ -28,7 +28,7 @@ const PackagesList = ({ pack, count }) => {
         };
 
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/updatePackage`, {
+            .post(`https://fdfn-server-v2.vercel.app/api/v1/updatePackage`, {
                 ...packageData,
             })
             .then(function (response) {
@@ -51,7 +51,7 @@ const PackagesList = ({ pack, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/deletePackage`, {
+            .post(`https://fdfn-server-v2.vercel.app/api/v1/deletePackage`, {
                 id: id,
             })
             .then(function (response) {

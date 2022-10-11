@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardContent, p, IconButton } from '@mui/material';
+import { Box, Card, CardContent, IconButton, Typography } from '@mui/material';
 import AccessTimeFilledOutlinedIcon from '@mui/icons-material/AccessTimeFilledOutlined';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 
@@ -14,16 +14,21 @@ const ItemThree = () => {
                     <IconButton variant="contained" color="error" size="large">
                         <AccessTimeFilledOutlinedIcon sx={{ fontSize: 40 }} />
                     </IconButton>
-                    <p sx={{ mt: '25px', fontWeight: 600 }}>24/7 Support</p>
+                    <Typography sx={{ mt: '25px', fontWeight: 600 }}>
+                        24/7 Support
+                    </Typography>
                     <Box sx={{ mt: '25px' }}>
-                        <p color="text.secondary">
+                        <Typography
+                            color="text.secondary"
+                            sx={{ textAlign: 'justify' }}
+                        >
                             We have the best support team you can have. They are
                             ready 24/7 to support with any kind of connectivity
                             or user issues at any cost!
-                        </p>
+                        </Typography>
                     </Box>
                     <Box sx={{ mt: '35px', fontSize: '20px' }}>
-                        <p
+                        <Typography
                             sx={{
                                 display: 'flex',
                                 alignItems: 'start',
@@ -33,8 +38,8 @@ const ItemThree = () => {
                             <AddBoxOutlinedIcon color="error" sx={{ mr: 2 }} />
                             Redundant connection ensure that You never go
                             offline
-                        </p>
-                        <p
+                        </Typography>
+                        <Typography
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -43,7 +48,7 @@ const ItemThree = () => {
                         >
                             <AddBoxOutlinedIcon color="error" sx={{ mr: 2 }} />
                             Our Expart Support all time ready htmlFor you
-                        </p>
+                        </Typography>
                     </Box>
                 </CardContent>
             </Card>

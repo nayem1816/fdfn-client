@@ -26,7 +26,7 @@ const ProductList = ({ pd, count }) => {
         };
 
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/updateProduct`, {
+            .post(`https://fdfn-server-v2.vercel.app/api/v1/updateProduct`, {
                 ...productData,
             })
             .then(function (response) {
@@ -49,7 +49,7 @@ const ProductList = ({ pd, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/deleteProduct`, {
+            .post(`https://fdfn-server-v2.vercel.app/api/v1/deleteProduct`, {
                 id: id,
             })
             .then(function (response) {

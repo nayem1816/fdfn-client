@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardContent, p, IconButton } from '@mui/material';
+import { Box, Card, CardContent, IconButton, Typography } from '@mui/material';
 import DataSaverOffRoundedIcon from '@mui/icons-material/DataSaverOffRounded';
 
 const ItemThree = () => {
@@ -13,14 +13,14 @@ const ItemThree = () => {
                     <IconButton variant="contained" color="error" size="large">
                         <DataSaverOffRoundedIcon sx={{ fontSize: 40 }} />
                     </IconButton>
-                    <p sx={{ mt: '25px', fontWeight: 600 }}>
+                    <Typography sx={{ mt: '25px', fontWeight: 600 }}>
                         Data connectivity
-                    </p>
+                    </Typography>
                     <Box sx={{ mt: '25px' }}>
-                        <p color="text.secondary">
+                        <Typography color="text.secondary">
                             A generic term htmlFor connecting devices to each
                             other in order to transfer data back and forth.
-                        </p>
+                        </Typography>
                     </Box>
                 </CardContent>
             </Card>

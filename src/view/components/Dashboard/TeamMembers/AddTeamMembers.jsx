@@ -23,7 +23,7 @@ const AddTeamMembers = () => {
         console.log(requestOptions);
 
         fetch(
-            'https://fdfn-server.fdfn.net/api/v1/createMember',
+            'https://fdfn-server-v2.vercel.app/api/v1/createMember',
             requestOptions
         )
             .then((response) => response.text())
@@ -34,7 +34,7 @@ const AddTeamMembers = () => {
                     autoClose: 1000,
                 });
                 // refresh page
-                // window.location.reload();
+                window.location.reload();
             })
             .catch((error) => {
                 setError(error);

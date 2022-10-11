@@ -7,9 +7,12 @@ const CreateNotification = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         axios
-            .post('https://fdfn-server.fdfn.net/api/v1/createNotification', {
-                ...data,
-            })
+            .post(
+                'https://fdfn-server-v2.vercel.app/api/v1/createNotification',
+                {
+                    ...data,
+                }
+            )
             .then(function (response) {
                 console.log(response);
                 toast.success('Admin created successfully');

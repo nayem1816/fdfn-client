@@ -22,7 +22,7 @@ const MemberList = ({ member, count }) => {
         };
 
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/updateMember`, {
+            .post(`https://fdfn-server-v2.vercel.app/api/v1/updateMember`, {
                 ...productData,
             })
             .then(function (response) {
@@ -44,7 +44,7 @@ const MemberList = ({ member, count }) => {
     };
     const handleDelete = (id) => {
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/deleteMember`, {
+            .post(`https://fdfn-server-v2.vercel.app/api/v1/deleteMember`, {
                 id: id,
             })
             .then(function (response) {

@@ -171,7 +171,7 @@ const CorporatePackages = () => {
                                         </Typography>
                                     </Box>
                                 </CardContent>
-                                <Box sx={{ textAlign: 'center' }}>
+                                <Box sx={{ textAlign: 'center', my: 5 }}>
                                     <Link
                                         to={`/registration/${packageData?._id}`}
                                     >

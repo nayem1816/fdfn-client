@@ -27,9 +27,12 @@ const ManageNotification = () => {
 
     const handleDelete = (id) => {
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/deleteNotification`, {
-                id: id,
-            })
+            .post(
+                `https://fdfn-server-v2.vercel.app/api/v1/deleteNotification`,
+                {
+                    id: id,
+                }
+            )
             .then(function (response) {
                 toast.success('Notification deleted successfully', {
                     position: 'top-right',

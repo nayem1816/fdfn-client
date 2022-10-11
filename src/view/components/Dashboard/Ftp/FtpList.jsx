@@ -11,7 +11,7 @@ const FtpList = ({ ftp, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/deleteFtp`, {
+            .post(`https://fdfn-server-v2.vercel.app/api/v1/deleteFtp`, {
                 id: id,
             })
             .then(function (response) {

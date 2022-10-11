@@ -22,13 +22,13 @@ const AboutFdfn = () => {
                     </IconButton>
                     <p className="text-2xl my-3">About the FDFN</p>
                     <p sx={{ mt: '10px', mb: 2 }}>
-                        FDFN is a place where internet make its way to the end
-                        users at ease in a quality manner. We thrive htmlFor
-                        quality. So be assured.
+                        NYM INTERNET is a place where internet make its way to
+                        the end users at ease in a quality manner. We thrive
+                        htmlFor quality. So be assured.
                     </p>
                     <p variant="p">
-                        FDFN is dedicated to its users best interest. We are
-                        determined to shine the light of the internet into
+                        NYM INTERNET is dedicated to its users best interest. We
+                        are determined to shine the light of the internet into
                         everyone and we will not stop until everyone is
                         satisfied.
                     </p>

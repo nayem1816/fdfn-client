@@ -6,7 +6,7 @@ const ProductDetails = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`https://fdfn-server.fdfn.net/api/v1/readProducts/${id}`)
+        fetch(`https://fdfn-server-v2.vercel.app/api/v1/readProducts/${id}`)
             .then((res) => res.json())
             .then((data) => setProductData(data.data));
     }, [id]);

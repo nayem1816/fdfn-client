@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardContent, p, IconButton } from '@mui/material';
+import { Box, Card, CardContent, IconButton, Typography } from '@mui/material';
 import CellWifiOutlinedIcon from '@mui/icons-material/CellWifiOutlined';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 
@@ -14,17 +14,22 @@ const ItemTwo = () => {
                     <IconButton variant="contained" color="error" size="large">
                         <CellWifiOutlinedIcon sx={{ fontSize: 40 }} />
                     </IconButton>
-                    <p sx={{ mt: '25px', fontWeight: 600 }}>Unlimited Data</p>
+                    <Typography sx={{ mt: '25px', fontWeight: 600 }}>
+                        Unlimited Data
+                    </Typography>
                     <Box sx={{ mt: '25px' }}>
-                        <p color="text.secondary">
-                            We provide unlimited data bandwidth htmlFor ultimate
-                            web browsing experience and also our flawless
+                        <Typography
+                            color="text.secondary"
+                            sx={{ textAlign: 'justify' }}
+                        >
+                            We provide unlimited data bandwidth for ultimate web
+                            browsing experience and also our flawless
                             connectivity helps with stable download and upload
                             speed all the time.
-                        </p>
+                        </Typography>
                     </Box>
                     <Box variant="body2" sx={{ mt: '35px', fontSize: '20px' }}>
-                        <p
+                        <Typography
                             sx={{
                                 display: 'flex',
                                 alignItems: 'start',
@@ -33,8 +38,8 @@ const ItemTwo = () => {
                         >
                             <AddBoxOutlinedIcon color="error" sx={{ mr: 2 }} />
                             24 Hrs Same Speed
-                        </p>
-                        <p
+                        </Typography>
+                        <Typography
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -43,8 +48,8 @@ const ItemTwo = () => {
                         >
                             <AddBoxOutlinedIcon color="error" sx={{ mr: 2 }} />
                             Higher Upload Speed
-                        </p>
-                        <p
+                        </Typography>
+                        <Typography
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -53,7 +58,7 @@ const ItemTwo = () => {
                         >
                             <AddBoxOutlinedIcon color="error" sx={{ mr: 2 }} />
                             Guaranteed Uptime
-                        </p>
+                        </Typography>
                     </Box>
                 </CardContent>
             </Card>

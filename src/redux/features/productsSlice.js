@@ -5,7 +5,7 @@ export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
     async (path) => {
         const response = await axios.get(
-            `https://fdfn-server.fdfn.net/api/v1/${path}`
+            `https://fdfn-server-v2.vercel.app/api/v1/${path}`
         );
         return response?.data;
     }

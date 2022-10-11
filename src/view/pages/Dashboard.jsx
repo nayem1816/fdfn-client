@@ -12,7 +12,9 @@ const Dashboard = () => {
     const [user, loading] = useAuthState(auth);
 
     useEffect(() => {
-        fetch(`https://fdfn-server.fdfn.net/api/v1/isAdmin?email=${user.email}`)
+        fetch(
+            `https://fdfn-server-v2.vercel.app/api/v1/isAdmin?email=${user.email}`
+        )
             .then((res) => res.json())
             .then((data) => {
                 if (data?.data?.adminEmail === user.email) {
@@ -21,7 +23,7 @@ const Dashboard = () => {
             });
 
         fetch(
-            `https://fdfn-server.fdfn.net/api/v1/isModerator?email=${user.email}`
+            `https://fdfn-server-v2.vercel.app/api/v1/isModerator?email=${user.email}`
         )
             .then((res) => res.json())
             .then((data) => {

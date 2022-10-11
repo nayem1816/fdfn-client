@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardContent, p, IconButton } from '@mui/material';
+import { Box, Card, CardContent, IconButton, Typography } from '@mui/material';
 import CellWifiRoundedIcon from '@mui/icons-material/CellWifiRounded';
 
 const ItemTwo = () => {
@@ -13,14 +13,14 @@ const ItemTwo = () => {
                     <IconButton variant="contained" color="error" size="large">
                         <CellWifiRoundedIcon sx={{ fontSize: 40 }} />
                     </IconButton>
-                    <p sx={{ mt: '25px', fontWeight: 600 }}>
+                    <Typography sx={{ mt: '25px', fontWeight: 600 }}>
                         Internet connectivity
-                    </p>
+                    </Typography>
                     <Box sx={{ mt: '25px' }}>
-                        <p color="text.secondary">
+                        <Typography color="text.secondary">
                             Internet is defined as Information Super Highway, to
                             access information Over the web.
-                        </p>
+                        </Typography>
                     </Box>
                 </CardContent>
             </Card>

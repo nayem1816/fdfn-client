@@ -24,7 +24,7 @@ const RegistrationList = ({ reg, count }) => {
         console.log(registrationUpdateData);
 
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/updateRegPackage`, {
+            .post(`https://fdfn-server-v2.vercel.app/api/v1/updateRegPackage`, {
                 ...registrationUpdateData,
             })
             .then(function (response) {
@@ -46,7 +46,7 @@ const RegistrationList = ({ reg, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/deleteRegPackage`, {
+            .post(`https://fdfn-server-v2.vercel.app/api/v1/deleteRegPackage`, {
                 id: id,
             })
             .then(function (response) {

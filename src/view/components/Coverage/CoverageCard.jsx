@@ -13,7 +13,7 @@ const CoverageCard = () => {
     const [coverages, setCoverages] = useState([]);
 
     useEffect(() => {
-        fetch('https://fdfn-server.fdfn.net/api/v1/readCoverage')
+        fetch('https://fdfn-server-v2.vercel.app/api/v1/readCoverage')
             .then((response) => response.json())
             .then((result) => setCoverages(result.data))
             .catch((error) => console.log('error', error));

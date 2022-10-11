@@ -18,7 +18,10 @@ const AddTv = () => {
             redirect: 'follow',
         };
 
-        fetch('https://fdfn-server.fdfn.net/api/v1/createTv', requestOptions)
+        fetch(
+            'https://fdfn-server-v2.vercel.app/api/v1/createTv',
+            requestOptions
+        )
             .then((response) => response.text())
             .then((result) => {
                 setGetTv(result);

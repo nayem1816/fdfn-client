@@ -14,7 +14,7 @@ const FtpCard = () => {
     const [ftpData, setFtpData] = useState([]);
 
     useEffect(() => {
-        fetch('https://fdfn-server.fdfn.net/api/v1/readFtp')
+        fetch('https://fdfn-server-v2.vercel.app/api/v1/readFtp')
             .then((response) => response.json())
             .then((result) => setFtpData(result.data))
             .catch((error) => console.log('error', error));

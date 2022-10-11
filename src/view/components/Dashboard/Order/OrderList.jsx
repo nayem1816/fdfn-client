@@ -22,9 +22,12 @@ const OrderList = ({ order, count }) => {
         };
 
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/updateProductBill`, {
-                ...orderUpdateData,
-            })
+            .post(
+                `https://fdfn-server-v2.vercel.app/api/v1/updateProductBill`,
+                {
+                    ...orderUpdateData,
+                }
+            )
             .then(function (response) {
                 toast.success('Status updated successfully', {
                     position: 'top-right',
@@ -43,9 +46,12 @@ const OrderList = ({ order, count }) => {
 
     const handleDelete = (id) => {
         axios
-            .post(`https://fdfn-server.fdfn.net/api/v1/deleteProductBill`, {
-                id: id,
-            })
+            .post(
+                `https://fdfn-server-v2.vercel.app/api/v1/deleteProductBill`,
+                {
+                    id: id,
+                }
+            )
             .then(function (response) {
                 toast.success('User deleted successfully', {
                     position: 'top-right',

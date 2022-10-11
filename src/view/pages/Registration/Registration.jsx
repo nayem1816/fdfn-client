@@ -47,7 +47,7 @@ const Registration = () => {
         };
 
         fetch(
-            'https://fdfn-server.fdfn.net/api/v1/createRegPackage',
+            'https://fdfn-server-v2.vercel.app/api/v1/createRegPackage',
             requestOptions
         )
             .then((response) => response.text())
@@ -75,7 +75,7 @@ const Registration = () => {
     };
 
     useEffect(() => {
-        fetch(`https://fdfn-server.fdfn.net/api/v1/readPackages/${id}`)
+        fetch(`https://fdfn-server-v2.vercel.app/api/v1/readPackages/${id}`)
             .then((res) => res.json())
             .then((data) => setPackageData(data.data));
     }, [id]);

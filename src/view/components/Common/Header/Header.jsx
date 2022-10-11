@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './Header.css';
-import logo from '../../../../assets/icons/fdfn-logo.png';
+// import logo from '../../../../assets/icons/fdfn-logo.png';
+import internetLogo from '../../../../assets/logo/internet-provider-logo.svg';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../../../firebase.config';
 import User from './User';
@@ -8,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const pages = [
     { id: 1, name: 'Home', link: 'home' },
-    { id: 2, name: 'Pay bill', link: 'payBill' },
+    // { id: 2, name: 'Pay bill', link: 'payBill' },
     { id: 3, name: 'Packages', link: 'packages' },
     { id: 4, name: 'FTP Site', link: 'ftpSite' },
     { id: 5, name: 'Live Tv', link: 'liveTv' },
@@ -31,9 +32,9 @@ const Header = () => {
     return (
         <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
             <div className="container flex flex-wrap justify-between mx-auto">
-                <a href="/" className="flex">
+                <a href="/" className="flex align-items-center">
                     <img
-                        src={logo}
+                        src={internetLogo}
                         className="mr-3 h-12 sm:h-16"
                         alt="FDFN Logo"
                     />

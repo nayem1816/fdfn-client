@@ -18,7 +18,10 @@ const AddFtp = () => {
             redirect: 'follow',
         };
 
-        fetch('https://fdfn-server.fdfn.net/api/v1/createFtp', requestOptions)
+        fetch(
+            'https://fdfn-server-v2.vercel.app/api/v1/createFtp',
+            requestOptions
+        )
             .then((response) => response.text())
             .then((result) => {
                 setGetFtp(result);

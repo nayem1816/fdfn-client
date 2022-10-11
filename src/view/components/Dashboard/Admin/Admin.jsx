@@ -9,7 +9,9 @@ const Admin = () => {
     const [isAdmin, setIsAdmin] = React.useState(false);
 
     useEffect(() => {
-        fetch(`https://fdfn-server.fdfn.net/api/v1/isAdmin?email=${user.email}`)
+        fetch(
+            `https://fdfn-server-v2.vercel.app/api/v1/isAdmin?email=${user.email}`
+        )
             .then((res) => res.json())
             .then((data) => {
                 if (data?.data?.adminEmail === user.email) {

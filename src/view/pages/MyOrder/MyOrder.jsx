@@ -10,7 +10,7 @@ const MyOrder = () => {
     useEffect(() => {
         axios
             .get(
-                'http://localhost:5000/api/v1/readProductBillByEmail/?email=' +
+                'https://fdfn-server-v2.vercel.app/api/v1/readProductBillByEmail/?email=' +
                     user?.email
             )
             .then((res) => {

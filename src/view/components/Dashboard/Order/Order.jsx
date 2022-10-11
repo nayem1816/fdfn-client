@@ -5,11 +5,10 @@ const Order = () => {
     const [productBillsData, setProductBillsData] = useState([]);
     let count = 1;
     useEffect(() => {
-        fetch(`https://fdfn-server.fdfn.net/api/v1/readProductBill`)
+        fetch(`https://fdfn-server-v2.vercel.app/api/v1/readProductBill`)
             .then((res) => res.json())
             .then((data) => setProductBillsData(data.data));
     }, []);
-    console.log(productBillsData);
     return (
         <div>
             <h2 className="text-4xl">Total Orders</h2>

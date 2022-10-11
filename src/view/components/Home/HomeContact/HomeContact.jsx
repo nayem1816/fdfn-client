@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Box, Grid, Button } from '@mui/material';
+import { Container, Box, Grid, Button, Typography } from '@mui/material';
 import CallIcon from '@mui/icons-material/Call';
 import { Link } from 'react-router-dom';
 
@@ -16,9 +16,9 @@ const HomeContact = () => {
             >
                 <Grid container spacing={4}>
                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                        <p>Stay Connected</p>
+                        <p className="text-2xl">Stay Connected</p>
                         <Box sx={{ mt: 3 }}>
-                            <p
+                            <Typography
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -28,8 +28,8 @@ const HomeContact = () => {
                                 variant="p"
                                 component="p"
                             >
-                                <CallIcon /> +8801310913326
-                            </p>
+                                <CallIcon /> +8801841181011
+                            </Typography>
                             <p
                                 sx={{
                                     display: 'flex',
@@ -39,7 +39,7 @@ const HomeContact = () => {
                                 variant="p"
                                 component="p"
                             >
-                                <CallIcon /> +8801310913327
+                                <CallIcon /> +8801841181011
                             </p>
                         </Box>
                     </Grid>

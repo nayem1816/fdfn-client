@@ -13,7 +13,7 @@ const TvCard = () => {
     const [tvData, setTvData] = useState([]);
 
     useEffect(() => {
-        fetch('https://fdfn-server.fdfn.net/api/v1/readTv')
+        fetch('https://fdfn-server-v2.vercel.app/api/v1/readTv')
             .then((response) => response.json())
             .then((result) => setTvData(result.data))
             .catch((error) => console.log('error', error));

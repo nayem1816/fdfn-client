@@ -1,4 +1,4 @@
-import { Modal, Box, p } from '@mui/material';
+import { Modal, Box } from '@mui/material';
 import React from 'react';
 
 const style = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardContent, p, IconButton } from '@mui/material';
+import { Box, Card, CardContent, IconButton, Typography } from '@mui/material';
 import NetworkCellRoundedIcon from '@mui/icons-material/NetworkCellRounded';
 
 const ItemFour = () => {
@@ -13,15 +13,15 @@ const ItemFour = () => {
                     <IconButton variant="contained" color="error" size="large">
                         <NetworkCellRoundedIcon sx={{ fontSize: 40 }} />
                     </IconButton>
-                    <p sx={{ mt: '25px', fontWeight: 600 }}>
+                    <Typography sx={{ mt: '25px', fontWeight: 600 }}>
                         Networking solution
-                    </p>
+                    </Typography>
                     <Box sx={{ mt: '25px' }}>
-                        <p color="text.secondary">
+                        <Typography color="text.secondary">
                             Many companies find themselves in the position of
                             having to manage complex networks provided by a
                             number of different vendors.
-                        </p>
+                        </Typography>
                     </Box>
                 </CardContent>
             </Card>

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import ProductsCard from './ProductsCard';
-import { p } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -30,8 +29,8 @@ const Products = () => {
 
     return (
         <div className="container mx-auto">
-            <div className="px-10 mt-10">
-                <p>Products</p>
+            <div className="px-5 mt-10">
+                <p className="text-2xl">Products</p>
             </div>
             <div className="">
                 <Swiper

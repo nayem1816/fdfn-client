@@ -20,7 +20,7 @@ const AddPackage = () => {
         };
 
         axios
-            .post('https://fdfn-server.fdfn.net/api/v1/createPackage', {
+            .post('https://fdfn-server-v2.vercel.app/api/v1/createPackage', {
                 ...packagesData,
             })
             .then(function (response) {

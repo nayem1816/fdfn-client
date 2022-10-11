@@ -156,16 +156,23 @@ const GovtPackages = () => {
                                     </Box>
                                     <Box
                                         sx={{
-                                            display: 'flex',
+                                            display: 'grid',
                                             justifyContent: 'center',
                                             alignItems: 'center',
                                             p: '30px 0 ',
                                         }}
                                     >
-                                        <Typography sx={{ fontSize: '60px' }}>
+                                        <Typography
+                                            sx={{
+                                                fontSize: '48px',
+                                                textAlign: 'center',
+                                            }}
+                                        >
                                             {packageData?.price}
                                         </Typography>
-                                        <Typography sx={{ ml: 1 }}>
+                                        <Typography
+                                            sx={{ ml: 0, textAlign: 'center' }}
+                                        >
                                             <h4>Monthly Charge</h4>
                                             <h2 style={{ color: 'red' }}>
                                                 Taka

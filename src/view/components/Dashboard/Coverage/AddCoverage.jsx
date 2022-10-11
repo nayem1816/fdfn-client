@@ -16,7 +16,7 @@ const AddCoverage = () => {
         };
 
         fetch(
-            'https://fdfn-server.fdfn.net/api/v1/createCoverage',
+            'https://fdfn-server-v2.vercel.app/api/v1/createCoverage',
             requestOptions
         )
             .then((response) => response.text())

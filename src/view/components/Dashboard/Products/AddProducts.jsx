@@ -24,7 +24,7 @@ const AddProducts = () => {
         };
 
         fetch(
-            'https://fdfn-server.fdfn.net/api/v1/createProduct',
+            'https://fdfn-server-v2.vercel.app/api/v1/createProduct',
             requestOptions
         )
             .then((response) => response.text())

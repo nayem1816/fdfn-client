@@ -101,32 +101,32 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Main />}>
                         <Route path="" element={<Home />} />
-                        <Route path="home" element={<Home />} />
-                        <Route path="payBill" element={<PayBill />} />
-                        <Route path="packages" element={<Packages />} />
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/payBill" element={<PayBill />} />
+                        <Route path="/packages" element={<Packages />} />
                         <Route
-                            path="registration/:id"
+                            path="/registration/:id"
                             element={<Registration />}
                         />
                         <Route
-                            path="registration/paymentRegistration/:id"
+                            path="/registration/paymentRegistration/:id"
                             element={<PaymentReg />}
                         />
-                        <Route path="my-orders" element={<MyOrder />} />
+                        <Route path="/my-orders" element={<MyOrder />} />
                         <Route
-                            path="my-registration"
+                            path="/my-registration"
                             element={<MyRegistration />}
                         />
-                        <Route path="ftpSite" element={<FtpSite />} />
-                        <Route path="liveTv" element={<LiveTv />} />
-                        <Route path="about" element={<About />} />
-                        <Route path="contact" element={<Contact />} />
-                        <Route path="coverage" element={<Coverage />} />
-                        <Route path="login" element={<Login />} />
-                        <Route path="signup" element={<Signup />} />
-                        <Route path="reset" element={<Reset />} />
+                        <Route path="/ftpSite" element={<FtpSite />} />
+                        <Route path="/liveTv" element={<LiveTv />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/coverage" element={<Coverage />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<Signup />} />
+                        <Route path="/reset" element={<Reset />} />
                         <Route
-                            path="product/:id"
+                            path="/product/:id"
                             element={
                                 <Protected>
                                     <ProductDetails />
@@ -134,7 +134,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="product/productPayment/:id"
+                            path="/product/productPayment/:id"
                             element={
                                 <Protected>
                                     <ProductPayment />
@@ -154,7 +154,7 @@ function App() {
                         }
                     >
                         <Route
-                            path=""
+                            path="/dashboard"
                             element={
                                 <Protected>
                                     {/* <AdminProtected> */}
@@ -164,7 +164,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="bills"
+                            path="/dashboard/bills"
                             element={
                                 <Protected>
                                     <BillList />
@@ -172,7 +172,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="admin"
+                            path="/dashboard/admin"
                             element={
                                 <Protected>
                                     <Admin />
@@ -180,7 +180,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="orders"
+                            path="/dashboard/orders"
                             element={
                                 <Protected>
                                     <Order />
@@ -188,7 +188,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="registrations"
+                            path="/dashboard/registrations"
                             element={
                                 <Protected>
                                     <Registrations />
@@ -196,7 +196,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="addPackage"
+                            path="/dashboard/addPackage"
                             element={
                                 <Protected>
                                     <AddPackage />
@@ -204,7 +204,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="managePackage"
+                            path="/dashboard/managePackage"
                             element={
                                 <Protected>
                                     <ManagePackage />
@@ -212,7 +212,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="addProduct"
+                            path="/dashboard/addProduct"
                             element={
                                 <Protected>
                                     <AddProducts />
@@ -220,7 +220,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="manageProduct"
+                            path="/dashboard/manageProduct"
                             element={
                                 <Protected>
                                     <ManageProducts />
@@ -228,7 +228,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="addMember"
+                            path="/dashboard/addMember"
                             element={
                                 <Protected>
                                     <AddTeamMembers />
@@ -236,7 +236,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="manageMember"
+                            path="/dashboard/manageMember"
                             element={
                                 <Protected>
                                     <ManageTeamMembers />
@@ -244,7 +244,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="addFtp"
+                            path="/dashboard/addFtp"
                             element={
                                 <Protected>
                                     <AddFtp />
@@ -252,7 +252,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="manageFtp"
+                            path="/dashboard/manageFtp"
                             element={
                                 <Protected>
                                     <ManageFtp />
@@ -260,7 +260,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="addTv"
+                            path="/dashboard/addTv"
                             element={
                                 <Protected>
                                     <AddTv />
@@ -268,7 +268,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="manageTv"
+                            path="/dashboard/manageTv"
                             element={
                                 <Protected>
                                     <ManageTv />
@@ -276,7 +276,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="addCoverage"
+                            path="/dashboard/addCoverage"
                             element={
                                 <Protected>
                                     <AddCoverage />
@@ -284,7 +284,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="manageCoverage"
+                            path="/dashboard/manageCoverage"
                             element={
                                 <Protected>
                                     <ManageCoverage />
@@ -292,7 +292,7 @@ function App() {
                             }
                         />
                         <Route
-                            path="notification"
+                            path="/dashboard/notification"
                             element={
                                 <Protected>
                                     <Notification />

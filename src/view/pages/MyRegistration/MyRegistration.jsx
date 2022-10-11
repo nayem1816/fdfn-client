@@ -10,7 +10,7 @@ const MyRegistration = () => {
     useEffect(() => {
         axios
             .get(
-                'http://localhost:5000/api/v1/readRegPackageByEmail/?email=' +
+                'https://fdfn-server-v2.vercel.app/api/v1/readRegPackageByEmail/?email=' +
                     user?.email
             )
             .then((res) => {

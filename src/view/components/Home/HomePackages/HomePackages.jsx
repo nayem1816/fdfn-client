@@ -5,7 +5,7 @@ import './HomePackages.css';
 import GovtPackages from './GovtPackages/GovtPackages';
 import EconomyPackages from './EconomyPackages/EconomyPackages';
 import GamingPackages from './GamingPackages/GamingPackages';
-import { Box, p, Container, Tab } from '@mui/material';
+import { Box, Container, Tab } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
