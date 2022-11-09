@@ -411,7 +411,7 @@ const RegistrationList = ({ reg, count }) => {
                                             <div className="relative">
                                                 <img
                                                     className="img-fluid"
-                                                    src={`https://${reg?.yourPhoto}`}
+                                                    src={`${reg?.yourPhoto}`}
                                                     alt=""
                                                 />
                                             </div>
@@ -423,7 +423,7 @@ const RegistrationList = ({ reg, count }) => {
                                             <div className="relative">
                                                 <img
                                                     className="img-fluid"
-                                                    src={`https://${reg?.nidFront}`}
+                                                    src={`${reg?.nidFront}`}
                                                     alt=""
                                                 />
                                             </div>
@@ -435,7 +435,7 @@ const RegistrationList = ({ reg, count }) => {
                                             <div className="relative">
                                                 <img
                                                     className="img-fluid"
-                                                    src={`https://${reg?.nidBack}`}
+                                                    src={`${reg?.nidBack}`}
                                                     alt=""
                                                 />
                                             </div>

@@ -41,7 +41,7 @@ const FtpList = ({ ftp, count }) => {
                     <img
                         style={{ height: '50px', width: '80px' }}
                         className="img-fluid"
-                        src={`https://${ftp?.image}`}
+                        src={`${ftp?.image}`}
                         alt=""
                     />
                 </div>
@@ -102,7 +102,7 @@ const FtpList = ({ ftp, count }) => {
                                     <div className="img">
                                         <img
                                             className="img-fluid p-5"
-                                            src={`https://${ftp?.image}`}
+                                            src={`${ftp?.image}`}
                                             alt=""
                                         />
                                     </div>

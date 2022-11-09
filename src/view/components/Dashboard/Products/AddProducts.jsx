@@ -1,35 +1,29 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import FileInput from '../../Common/Custom/FileInput/FileInput';
 
 const AddProducts = () => {
-    const [getProduct, setGetProduct] = React.useState([]);
-    const [error, setError] = React.useState(null);
+    const [imageURL, setImageURL] = React.useState(null);
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
-        var formData = new FormData();
-        formData.append('productName', data.productName);
-        formData.append('productPrice', data.productPrice);
-        formData.append('productDescription', data.productDescription);
-        formData.append(
-            'image',
-            data.productImage[0],
-            data.productImage[0].name
-        );
 
-        var requestOptions = {
-            method: 'POST',
-            body: formData,
-            redirect: 'follow',
+    const onSubmit = async (data) => {
+        const bodyData = {
+            productName: data.productName,
+            productPrice: data.productPrice,
+            productDescription: data.productDescription,
+            image: imageURL,
         };
 
-        fetch(
-            'https://fdfn-server-v2.vercel.app/api/v1/createProduct',
-            requestOptions
-        )
-            .then((response) => response.text())
+        fetch('https://fdfn-server-v2.vercel.app/api/v1/createProduct', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(bodyData),
+        })
+            .then((response) => response.json())
             .then((result) => {
-                setGetProduct(result);
                 toast.success('Product Added Successfully', {
                     position: 'top-right',
                     autoClose: 1000,
@@ -38,20 +32,12 @@ const AddProducts = () => {
                 window.location.reload();
             })
             .catch((error) => {
-                setError(error);
                 toast.error('Something went wrong', {
                     position: 'top-right',
                     autoClose: 1000,
                 });
             });
     };
-
-    if (error) {
-        toast.error('Product not added');
-    }
-    if (getProduct) {
-        console.log(getProduct);
-    }
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <h2 className="text-4xl">Admin</h2>
@@ -80,13 +66,7 @@ const AddProducts = () => {
                     >
                         Upload Product Image
                     </label>
-                    <input
-                        {...register('productImage', { required: true })}
-                        className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        aria-describedby="file_input_help"
-                        id="file_input"
-                        type="file"
-                    />
+                    <FileInput setImageURL={setImageURL} />
                 </div>
                 <div className="Price mb-6">
                     <label
@@ -123,8 +103,13 @@ const AddProducts = () => {
 
                 <div className="submit-btn lg:col-span-2">
                     <button
+                        disabled={imageURL === null ? true : false}
                         type="submit"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className={`${
+                            imageURL === null
+                                ? 'bg-gray-400 cursor-not-allowed text-white font-bold py-2 px-4 rounded'
+                                : 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+                        }`}
                     >
                         Submit
                     </button>

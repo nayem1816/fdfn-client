@@ -41,7 +41,7 @@ const TvList = ({ tv, count }) => {
                     <img
                         style={{ height: '50px', width: '80px' }}
                         className="img-fluid"
-                        src={`https://${tv?.image}`}
+                        src={`${tv?.image}`}
                         alt=""
                     />
                 </div>
@@ -102,7 +102,7 @@ const TvList = ({ tv, count }) => {
                                     <div className="img">
                                         <img
                                             className="img-fluid p-5"
-                                            src={`https://${tv?.image}`}
+                                            src={`${tv?.image}`}
                                             alt=""
                                         />
                                     </div>

@@ -234,7 +234,7 @@ const MyRegistration = () => {
                                 <img
                                     style={{ height: '170px', width: '140px' }}
                                     className="img-fluid"
-                                    src={`https://${data?.yourPhoto}`}
+                                    src={`${data?.yourPhoto}`}
                                     alt=""
                                 />
                             </div>
@@ -247,7 +247,7 @@ const MyRegistration = () => {
                                 <img
                                     style={{ height: '120px', width: '200px' }}
                                     className="img-fluid"
-                                    src={`https://${data?.nidFront}`}
+                                    src={`${data?.nidFront}`}
                                     alt=""
                                 />
                             </div>
@@ -260,7 +260,7 @@ const MyRegistration = () => {
                                 <img
                                     style={{ height: '120px', width: '200px' }}
                                     className="img-fluid"
-                                    src={`https://${data?.nidBack}`}
+                                    src={`${data?.nidBack}`}
                                     alt=""
                                 />
                             </div>

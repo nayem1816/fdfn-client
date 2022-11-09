@@ -78,7 +78,7 @@ const MemberList = ({ member, count }) => {
                     <img
                         style={{ height: '50px', width: '60px' }}
                         className="img-fluid"
-                        src={`https://${member?.image}`}
+                        src={`${member?.image}`}
                         alt=""
                     />
                 </div>
@@ -135,7 +135,7 @@ const MemberList = ({ member, count }) => {
                                     <div className="img">
                                         <img
                                             className="img-fluid p-5"
-                                            src={`https://${member?.image}`}
+                                            src={`${member?.image}`}
                                             alt=""
                                         />
                                     </div>

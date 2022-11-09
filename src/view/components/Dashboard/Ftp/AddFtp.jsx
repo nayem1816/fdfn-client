@@ -1,30 +1,27 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import FileInput from '../../Common/Custom/FileInput/FileInput';
 
 const AddFtp = () => {
-    const [getFtp, setGetFtp] = React.useState([]);
-    const [error, setError] = React.useState(null);
+    const [imageURL, setImageURL] = React.useState(null);
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        var formData = new FormData();
-        formData.append('ftpName', data.ftpName);
-        formData.append('link', data.link);
-        formData.append('image', data.image[0], data.image[0].name);
-
-        var requestOptions = {
-            method: 'POST',
-            body: formData,
-            redirect: 'follow',
+        const ftpData = {
+            ftpName: data.ftpName,
+            link: data.link,
+            image: imageURL,
         };
 
-        fetch(
-            'https://fdfn-server-v2.vercel.app/api/v1/createFtp',
-            requestOptions
-        )
-            .then((response) => response.text())
+        fetch('https://fdfn-server-v2.vercel.app/api/v1/createFtp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(ftpData),
+        })
+            .then((response) => response.json())
             .then((result) => {
-                setGetFtp(result);
                 toast.success('Ftp site Added Successfully', {
                     position: 'top-right',
                     autoClose: 1000,
@@ -33,20 +30,12 @@ const AddFtp = () => {
                 window.location.reload();
             })
             .catch((error) => {
-                setError(error);
                 toast.error('Something went wrong', {
                     position: 'top-right',
                     autoClose: 1000,
                 });
             });
     };
-
-    if (error) {
-        toast.error('Ftp site not added');
-    }
-    if (getFtp) {
-        console.log(getFtp);
-    }
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <h2 className="text-4xl">Add Ftp Site</h2>
@@ -75,13 +64,7 @@ const AddFtp = () => {
                     >
                         Upload Ftp Image
                     </label>
-                    <input
-                        {...register('image', { required: true })}
-                        className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        aria-describedby="file_input_help"
-                        id="file_input"
-                        type="file"
-                    />
+                    <FileInput setImageURL={setImageURL} />
                 </div>
                 <div className="Price mb-6">
                     <label

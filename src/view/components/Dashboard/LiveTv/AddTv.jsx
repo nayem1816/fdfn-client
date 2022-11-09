@@ -1,36 +1,33 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import FileInput from '../../Common/Custom/FileInput/FileInput';
 
 const AddTv = () => {
-    const [getTv, setGetTv] = React.useState([]);
+    const [imageURL, setImageURL] = React.useState(null);
     const [error, setError] = React.useState(null);
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
-        var formData = new FormData();
-        formData.append('channelName', data.tvName);
-        formData.append('link', data.link);
-        formData.append('image', data.image[0], data.image[0].name);
 
-        var requestOptions = {
-            method: 'POST',
-            body: formData,
-            redirect: 'follow',
+    const onSubmit = (data) => {
+        const tvData = {
+            channelName: data.tvName,
+            image: imageURL,
+            link: data.link,
         };
 
-        fetch(
-            'https://fdfn-server-v2.vercel.app/api/v1/createTv',
-            requestOptions
-        )
-            .then((response) => response.text())
+        fetch('https://fdfn-server-v2.vercel.app/api/v1/createTv', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(tvData),
+        })
+            .then((response) => response.json())
             .then((result) => {
-                setGetTv(result);
                 toast.success('Live Tv Added Successfully', {
                     position: 'top-right',
                     autoClose: 1000,
                 });
-                // refresh page
-                // window.location.reload();
             })
             .catch((error) => {
                 setError(error);
@@ -43,9 +40,6 @@ const AddTv = () => {
 
     if (error) {
         toast.error('Live Tv not added');
-    }
-    if (getTv) {
-        console.log(getTv);
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -75,13 +69,7 @@ const AddTv = () => {
                     >
                         Upload Tv Image
                     </label>
-                    <input
-                        {...register('image', { required: true })}
-                        className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        aria-describedby="file_input_help"
-                        id="file_input"
-                        type="file"
-                    />
+                    <FileInput setImageURL={setImageURL} />
                 </div>
                 <div className="Price mb-6">
                     <label

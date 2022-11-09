@@ -1,56 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-// import { useDispatch } from 'react-redux';
-// import { addRegistration } from '../../../redux/features/registrationSlice';
 import { toast } from 'react-toastify';
 import getFullDateAndTime from './../../../services/getFullDateAndTime';
+import FileInput from '../../components/Common/Custom/FileInput/FileInput';
 
 const Registration = () => {
+    const [yourPhoto, setYourPhoto] = useState(null);
+    const [nidFront, setNidFront] = useState(null);
+    const [nidBack, setNidBack] = useState(null);
     const [packageData, setPackageData] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
 
     const { register, handleSubmit } = useForm();
 
-    // const dispatch = useDispatch();
-
     const onSubmit = (data) => {
         const dateAndTime = getFullDateAndTime();
 
-        var formData = new FormData();
-        formData.append('subscriberName', data.subscriberName);
-        formData.append('authorizedName', data.authorizedName);
-        formData.append('email', data.email);
-        formData.append('contactNumber', data.contactNumber);
-        formData.append('nationalId', data.nationalId);
-        formData.append('yourPhoto', data.yourPhoto[0], data.yourPhoto[0].name);
-        formData.append('nidFront', data.nidFront[0], data.nidFront[0].name);
-        formData.append('nidBack', data.nidBack[0], data.nidBack[0].name);
-        formData.append('dateOfBirth', data.dateOfBirth);
-        formData.append('gender', data.gender);
-        formData.append('occupation', data.occupation);
-        formData.append('fatherName', data.fatherName);
-        formData.append('motherName', data.motherName);
-        formData.append('googleLocationPinPoint', data.googleLocationPinPoint);
-        formData.append('address', data.address);
-        formData.append('packageName', packageData.packageName);
-        formData.append('totalMb', packageData.totalMb);
-        formData.append('price', packageData.price);
-        formData.append('createRegDate', dateAndTime);
-        formData.append('updateRegDate', dateAndTime);
-
-        var requestOptions = {
-            method: 'POST',
-            body: formData,
-            redirect: 'follow',
+        const registrationData = {
+            subscriberName: data.subscriberName,
+            authorizedName: data.authorizedName,
+            email: data.email,
+            contactNumber: data.contactNumber,
+            nationalId: data.nationalId,
+            yourPhoto: yourPhoto,
+            nidFront: nidFront,
+            nidBack: nidBack,
+            dateOfBirth: data.dateOfBirth,
+            gender: data.gender,
+            occupation: data.occupation,
+            fatherName: data.fatherName,
+            motherName: data.motherName,
+            googleLocationPinPoint: data.googleLocationPinPoint,
+            address: data.address,
+            packageName: packageData.packageName,
+            totalMb: packageData.totalMb,
+            price: packageData.price,
+            createRegDate: dateAndTime,
+            updateRegDate: dateAndTime,
         };
 
-        fetch(
-            'https://fdfn-server-v2.vercel.app/api/v1/createRegPackage',
-            requestOptions
-        )
-            .then((response) => response.text())
+        fetch('https://fdfn-server-v2.vercel.app/api/v1/createRegPackage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(registrationData),
+        })
+            .then((response) => response.json())
             .then((result) => {
                 console.log(result);
                 if (result) {
@@ -67,11 +65,6 @@ const Registration = () => {
                     autoClose: 1000,
                 });
             });
-
-        // dispatch(addRegistration(data));
-        // go to payment page
-
-        // navigate(`/registration/paymentRegistration/${id}`);
     };
 
     useEffect(() => {
@@ -186,13 +179,7 @@ const Registration = () => {
                         >
                             Your Photo*
                         </label>
-                        <input
-                            {...register('yourPhoto', { required: true })}
-                            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                            aria-describedby="file_input_help"
-                            id="file_input1"
-                            type="file"
-                        />
+                        <FileInput setImageURL={setYourPhoto} />
                     </div>
                     <div className="uploadFile mb-6">
                         <label
@@ -201,13 +188,7 @@ const Registration = () => {
                         >
                             Nid Front Photo
                         </label>
-                        <input
-                            {...register('nidFront')}
-                            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                            aria-describedby="file_input_help"
-                            id="file_input1"
-                            type="file"
-                        />
+                        <FileInput setImageURL={setNidFront} />
                     </div>
                     <div className="uploadFile mb-6">
                         <label
@@ -216,13 +197,7 @@ const Registration = () => {
                         >
                             Nid Back Photo
                         </label>
-                        <input
-                            {...register('nidBack')}
-                            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                            aria-describedby="file_input_help"
-                            id="file_input3"
-                            type="file"
-                        />
+                        <FileInput setImageURL={setNidBack} />
                     </div>
                     <div className="mb-6">
                         <label

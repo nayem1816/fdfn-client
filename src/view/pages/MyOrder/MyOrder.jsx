@@ -56,7 +56,7 @@ const MyOrder = () => {
                             <div className="img">
                                 <img
                                     style={{ width: '70px', height: '60px' }}
-                                    src={`https://${data?.image}`}
+                                    src={`${data?.image}`}
                                     alt=""
                                 />
                             </div>

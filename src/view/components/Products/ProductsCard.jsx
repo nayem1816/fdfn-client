@@ -8,7 +8,7 @@ const ProductsCard = ({ product }) => {
                 <img
                     style={{ width: '100%', height: '320px' }}
                     className="p-8 rounded"
-                    src={`https://${product?.image}`}
+                    src={`${product?.image}`}
                     alt="product"
                 />
             </Link>

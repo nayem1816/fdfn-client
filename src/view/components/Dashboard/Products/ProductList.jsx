@@ -84,7 +84,7 @@ const ProductList = ({ pd, count }) => {
                     <img
                         style={{ height: '50px', width: '80px' }}
                         className="img-fluid"
-                        src={`https://${pd?.image}`}
+                        src={`${pd?.image}`}
                         alt=""
                     />
                 </div>
@@ -141,7 +141,7 @@ const ProductList = ({ pd, count }) => {
                                     <div className="img">
                                         <img
                                             className="img-fluid p-5"
-                                            src={`https://${pd?.image}`}
+                                            src={`${pd?.image}`}
                                             alt=""
                                         />
                                     </div>

@@ -313,7 +313,7 @@ const OrderList = ({ order, count }) => {
                                             <div className="relative">
                                                 <img
                                                     className="img-fluid"
-                                                    src={`https://${order?.image}`}
+                                                    src={`${order?.image}`}
                                                     alt=""
                                                 />
                                             </div>
