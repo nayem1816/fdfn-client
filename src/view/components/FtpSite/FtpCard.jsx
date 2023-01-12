@@ -48,12 +48,10 @@ const FtpCard = () => {
                                             component="img"
                                             width="100%"
                                             height="140"
-                                            image={`http://${ftp.image}`}
+                                            image={`${ftp.image}`}
                                             alt="green iguana"
                                         />
-                                        <CardContent
-                                        // sx={{ backgroundColor: 'black' }}
-                                        >
+                                        <CardContent>
                                             <Typography
                                                 gutterBottom
                                                 sx={{ color: 'white' }}

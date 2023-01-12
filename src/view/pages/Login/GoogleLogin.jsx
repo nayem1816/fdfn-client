@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate, useLocation } from 'react-router-dom';
-import auth from './../../../firebase.config';
 import { toast } from 'react-toastify';
+import auth from '../../../firebase.config';
 
 const GoogleLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
